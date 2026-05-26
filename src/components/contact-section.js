@@ -37,7 +37,7 @@ export function ContactSection({ socialLinks }) {
   return (
     <section
       id="contact"
-      className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:py-24"
+      className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 sm:px-6 md:scroll-mt-32 md:py-28 lg:px-8 lg:py-32"
     >
       <motion.div
         initial="hidden"
@@ -48,22 +48,22 @@ export function ContactSection({ socialLinks }) {
       >
         <motion.div
           variants={itemVariants}
-          className="glass-card rounded-4xl bg-white/[0.02] p-8 shadow-2xl sm:p-10"
+          className="glass-card rounded-4xl bg-white/2 p-8 shadow-2xl sm:p-10"
         >
           <p className="section-kicker text-xs font-semibold text-cyan-200/70">
             Contact
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             Start a conversation or send a brief about your build.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Use the form to reach me directly. The submission is handled with a
             Next.js Server Action and can forward into your n8n automation flow
             when the webhook is configured.
           </p>
 
           <motion.form action={formAction} className="mt-8 space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <label className="space-y-2 text-sm font-medium text-white/78">
                 Name
                 <input
@@ -93,11 +93,11 @@ export function ContactSection({ socialLinks }) {
                 required
                 rows={6}
                 placeholder="Tell me about your project, infrastructure goals, or the kind of collaboration you need."
-                className="glass-input w-full rounded-3xl px-4 py-3 text-sm leading-7"
+                className="glass-input w-full rounded-3xl px-4 py-3 text-sm leading-relaxed"
               />
             </label>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <p
                 aria-live="polite"
                 className={`text-sm ${state.status === "success" ? "text-emerald-300" : state.status === "error" ? "text-rose-300" : "text-white/60"}`}
@@ -109,7 +109,7 @@ export function ContactSection({ socialLinks }) {
               <button
                 type="submit"
                 disabled={pending}
-                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition duration-300 hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-60"
+                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-4 w-4" />
                 {pending ? "Sending..." : "Send Message"}
@@ -120,15 +120,15 @@ export function ContactSection({ socialLinks }) {
 
         <motion.div
           variants={itemVariants}
-          className="glass-card rounded-4xl p-8 sm:p-10"
+          className="glass-card rounded-4xl bg-white/2 p-8 shadow-2xl sm:p-10"
         >
           <p className="section-kicker text-xs font-semibold text-cyan-200/70">
             Reach out
           </p>
-          <h3 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h3 className="text-balance mt-4 text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
             Prefer a direct channel?
           </h3>
-          <p className="mt-5 text-base leading-7 text-muted">
+          <p className="mt-5 text-base leading-relaxed text-muted">
             These shortcuts are set up as glassmorphism icon buttons for quick
             access to the channels most people use first.
           </p>
@@ -157,7 +157,7 @@ export function ContactSection({ socialLinks }) {
                   target={item.key === "email" ? undefined : "_blank"}
                   rel={item.key === "email" ? undefined : "noreferrer"}
                   whileHover={{ y: -5, scale: 1.03 }}
-                  className="hover-aurora-glow glass-button inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white transition duration-300"
+                  className="hover-aurora-glow glass-button inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white transition-all duration-300 ease-out"
                   aria-label={item.label}
                   title={item.label}
                 >

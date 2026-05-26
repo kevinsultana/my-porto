@@ -18,7 +18,7 @@ export function ProjectsSection({ projects }) {
   return (
     <section
       id="projects"
-      className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:py-20"
+      className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 sm:px-6 md:scroll-mt-32 md:py-28 lg:px-8 lg:py-32"
     >
       <motion.div
         initial="hidden"
@@ -31,23 +31,23 @@ export function ProjectsSection({ projects }) {
           <p className="section-kicker text-xs font-semibold text-cyan-200/70">
             Featured projects
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             A few standout systems framed as portfolio-ready case studies.
           </h2>
-          <p className="mt-5 text-base leading-7 text-muted sm:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
             These showcase the kind of product thinking I apply across client
             work, internal tooling, and infrastructure-driven builds.
           </p>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
               variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.01 }}
-              transition={{ duration: 0.24 }}
-              className="hover-aurora-glow glass-card group relative overflow-hidden rounded-4xl p-6 sm:p-7 shadow-2xl"
+              whileHover={{ y: -4, scale: 1.01 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+              className="hover-aurora-glow glass-card group relative w-full overflow-hidden rounded-4xl bg-white/[0.02] p-6 shadow-2xl sm:p-7"
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.11),transparent_40%)] opacity-0 transition duration-300 group-hover:opacity-100" />
               <div className="relative flex h-full flex-col">
@@ -63,11 +63,11 @@ export function ProjectsSection({ projects }) {
                     <p className="text-sm font-medium uppercase tracking-[0.22em] text-cyan-200/60">
                       {project.category}
                     </p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                    <h3 className="text-balance mt-3 text-2xl font-semibold leading-tight tracking-tight text-white">
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-sm leading-7 text-white/68 sm:text-base">
+                  <p className="text-sm leading-relaxed text-white/68 sm:text-base">
                     {project.description}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export function ProjectsSection({ projects }) {
             href="https://github.com/kevinsultana"
             target="_blank"
             rel="noreferrer"
-            className="glass-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition duration-300 hover:-translate-y-1"
+            className="glass-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1"
           >
             <FaGithub className="h-4 w-4" />
             Explore all repos on GitHub

@@ -28,11 +28,6 @@ const techStack = [
     detail: "Server management, shell automation, and system tuning.",
   },
   {
-    name: "Proxmox",
-    icon: "Server",
-    detail: "Virtualization and homelab infrastructure operations.",
-  },
-  {
     name: "Self-hosting",
     icon: "CloudCog",
     detail: "Secure services, reverse proxies, and resilient deployments.",

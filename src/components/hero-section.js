@@ -78,10 +78,10 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative mx-auto max-w-7xl scroll-mt-28 px-6 pt-16 pb-10 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:pt-24"
+      className="relative mx-auto max-w-7xl scroll-mt-28 mb-20 px-6 pt-16 pb-10 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:pt-24"
     >
       <motion.div
-        className="glass-card relative overflow-hidden rounded-4xl px-6 py-14 sm:px-10 lg:px-14 lg:py-20 shadow-aurora"
+        className="glass-card relative overflow-hidden rounded-4xl px-6 py-12 shadow-aurora sm:px-8 md:px-10 md:py-16 lg:px-14 lg:py-20"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -89,11 +89,11 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_32%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_26%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-300/50 to-transparent" />
 
-        <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div className="relative grid gap-10 md:grid-cols-2 md:items-center lg:gap-12">
           <div className="space-y-8">
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-cyan-100 backdrop-blur-md"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/2 px-4 py-2 text-sm text-cyan-100 backdrop-blur-xl"
             >
               <Sparkles className="h-4 w-4 text-cyan-300" />
               Building polished software, infrastructure, and self-hosted
@@ -104,17 +104,17 @@ export function HeroSection() {
               <p className="section-kicker text-xs font-semibold text-cyan-200/70">
                 Portfolio / 2026
               </p>
-              <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-3xl text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 <span className="aurora-text block">
                   {nameText || "Kevin Sultana Herman"}
                 </span>
-                <span className="mt-3 block min-h-[1.35em] whitespace-nowrap text-2xl font-medium text-white/90 sm:text-3xl lg:text-4xl">
+                <span className="mt-3 block min-h-[1.35em] whitespace-nowrap text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl lg:text-3xl">
                   {roleText || currentRole}
                   <span className="ml-1 inline-block h-[0.9em] w-0.5 translate-y-px animate-pulse bg-cyan-300/80 align-middle" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+              <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg md:text-xl">
                 I design and ship modern web platforms with Next.js and React,
                 while keeping the infrastructure mindset close at hand through
                 Linux, Proxmox, self-hosting, and DevOps automation.
@@ -123,18 +123,18 @@ export function HeroSection() {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col gap-4 sm:flex-row"
+              className="flex flex-col gap-4 md:flex-row"
             >
               <a
                 href="#projects"
-                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition duration-300 hover:-translate-y-1"
+                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#contact"
-                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition duration-300 hover:-translate-y-1"
+                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1"
               >
                 Contact Me
                 <Download className="h-4 w-4" />
@@ -143,18 +143,18 @@ export function HeroSection() {
           </div>
 
           <motion.div variants={itemVariants} className="relative">
-            <div className="glass-card relative overflow-hidden rounded-4xl p-6 sm:p-8">
+            <div className="glass-card relative overflow-hidden rounded-4xl p-5 shadow-2xl sm:p-6 md:p-7 lg:p-8">
               <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl" />
               <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-purple-500/20 blur-3xl" />
               <div className="relative space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-white/70">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/2 px-3 py-1 text-xs uppercase tracking-wide text-white/70">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.85)]" />
                   Available for collaborations
                 </div>
 
                 <div className="space-y-3">
                   <p className="text-sm text-white/60">Focus areas</p>
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {[
                       "Next.js app architecture",
                       "Infrastructure and self-hosting",
@@ -163,7 +163,7 @@ export function HeroSection() {
                     ].map((item) => (
                       <div
                         key={item}
-                        className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 backdrop-blur-md"
+                        className="rounded-2xl border border-white/10 bg-white/2 px-4 py-3 text-sm text-white/80 backdrop-blur-xl"
                       >
                         {item}
                       </div>
@@ -171,7 +171,7 @@ export function HeroSection() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {[
                     ["Next.js", "Core web stack"],
                     ["Linux", "Infra ops"],

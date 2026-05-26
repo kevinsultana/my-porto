@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #f5f7fb;
+  --muted: rgba(245, 247, 251, 0.72);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --aurora-cyan: rgba(34, 211, 238, 0.24);
+  --aurora-purple: rgba(168, 85, 247, 0.22);
+  --aurora-emerald: rgba(16, 185, 129, 0.18);
 }
 
 @theme inline {
@@ -12,15 +18,173 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top left, var(--aurora-purple), transparent 32%),
+    radial-gradient(circle at 85% 10%, var(--aurora-cyan), transparent 28%),
+    radial-gradient(circle at 50% 100%, var(--aurora-emerald), transparent 24%),
+    linear-gradient(180deg, #101010 0%, #0a0a0a 35%, #070707 100%);
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #f8fafc;
+}
+
+.aurora-shell {
+  position: relative;
+}
+
+.aurora-shell::before,
+.aurora-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+  filter: blur(72px);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+.aurora-shell::before {
+  top: 3rem;
+  left: -6rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.22),
+    transparent 72%
+  );
+}
+
+.aurora-shell::after {
+  right: -4rem;
+  top: 18rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.18),
+    transparent 70%
+  );
+}
+
+.glass-card {
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.05)
+    ),
+    rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.34),
+    0 0 0 rgba(34, 211, 238, 0);
+}
+
+.glass-button:hover {
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(34, 211, 238, 0.26),
+    0 0 42px rgba(168, 85, 247, 0.18);
+}
+
+.glass-input {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--foreground);
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.glass-input::placeholder {
+  color: rgba(245, 247, 251, 0.45);
+}
+
+.glass-input:focus {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.14);
+}
+
+.aurora-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #67e8f9 32%,
+    #c084fc 64%,
+    #6ee7b7 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.aurora-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
+  opacity: 0.32;
+}
+
+.section-kicker {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.shadow-aurora {
+  box-shadow:
+    0 0 34px rgba(34, 211, 238, 0.12),
+    0 0 54px rgba(168, 85, 247, 0.1),
+    0 0 74px rgba(16, 185, 129, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

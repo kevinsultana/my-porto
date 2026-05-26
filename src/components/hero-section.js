@@ -78,7 +78,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative mx-auto max-w-7xl px-6 pt-16 pb-10 sm:px-8 lg:px-12 lg:pt-24"
+      className="relative mx-auto max-w-7xl scroll-mt-28 px-6 pt-16 pb-10 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:pt-24"
     >
       <motion.div
         className="glass-card relative overflow-hidden rounded-4xl px-6 py-14 sm:px-10 lg:px-14 lg:py-20 shadow-aurora"

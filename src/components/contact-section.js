@@ -37,7 +37,7 @@ export function ContactSection({ socialLinks }) {
   return (
     <section
       id="contact"
-      className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24"
+      className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:py-24"
     >
       <motion.div
         initial="hidden"
@@ -48,7 +48,7 @@ export function ContactSection({ socialLinks }) {
       >
         <motion.div
           variants={itemVariants}
-          className="glass-card rounded-4xl p-8 sm:p-10"
+          className="glass-card rounded-4xl bg-white/[0.02] p-8 shadow-2xl sm:p-10"
         >
           <p className="section-kicker text-xs font-semibold text-cyan-200/70">
             Contact
@@ -157,7 +157,7 @@ export function ContactSection({ socialLinks }) {
                   target={item.key === "email" ? undefined : "_blank"}
                   rel={item.key === "email" ? undefined : "noreferrer"}
                   whileHover={{ y: -5, scale: 1.03 }}
-                  className="glass-button inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white transition duration-300"
+                  className="hover-aurora-glow glass-button inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white transition duration-300"
                   aria-label={item.label}
                   title={item.label}
                 >

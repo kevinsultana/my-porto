@@ -45,7 +45,7 @@ export function AboutSection({ techStack }) {
   return (
     <section
       id="about"
-      className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20"
+      className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:py-20"
     >
       <motion.div
         initial="hidden"
@@ -122,7 +122,7 @@ export function AboutSection({ techStack }) {
                   key={item.name}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.22 }}
-                  className="group rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md"
+                  className="hover-aurora-glow group rounded-3xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-md shadow-2xl"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/20 text-cyan-300 shadow-[0_0_28px_rgba(34,211,238,0.12)]">

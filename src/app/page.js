@@ -2,6 +2,7 @@ import {
   AboutSection,
   ContactSection,
   HeroSection,
+  Navbar,
   ProjectsSection,
 } from "@/components";
 
@@ -94,7 +95,8 @@ const socialLinks = {
 export default function Home() {
   return (
     <main className="aurora-shell relative isolate overflow-hidden bg-[#0a0a0a] text-white">
-      <div className="pointer-events-none absolute inset-0 -z-20 aurora-grid" />
+      <Navbar />
+      <div className="pointer-events-none absolute inset-0 -z-20 aurora-grid tech-grid" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_35%)]" />
 
       <HeroSection />

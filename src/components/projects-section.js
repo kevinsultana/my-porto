@@ -18,7 +18,7 @@ export function ProjectsSection({ projects }) {
   return (
     <section
       id="projects"
-      className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20"
+      className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16 sm:px-8 lg:scroll-mt-32 lg:px-12 lg:py-20"
     >
       <motion.div
         initial="hidden"
@@ -47,7 +47,7 @@ export function ProjectsSection({ projects }) {
               variants={itemVariants}
               whileHover={{ y: -10, scale: 1.01 }}
               transition={{ duration: 0.24 }}
-              className="glass-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7"
+              className="hover-aurora-glow glass-card group relative overflow-hidden rounded-4xl p-6 sm:p-7 shadow-2xl"
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.11),transparent_40%)] opacity-0 transition duration-300 group-hover:opacity-100" />
               <div className="relative flex h-full flex-col">

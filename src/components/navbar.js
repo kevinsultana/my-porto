@@ -104,7 +104,7 @@ export default function Navbar({ locale = "en" }) {
           onClick={() => handleNavLinkClick("home")}
           className="font-black text-lg md:text-xl tracking-tighter px-2 text-brand-text hover:scale-105 transition-transform"
         >
-          DV<span className="text-brand-pink">.</span>
+          KS<span className="text-brand-pink">.</span>
         </a>
 
         <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-1" />

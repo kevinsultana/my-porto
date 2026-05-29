@@ -24,7 +24,7 @@ export default function HeroSection({ dict }) {
           className="flex-1 space-y-6 text-left"
         >
           <p className="text-sm font-bold uppercase tracking-widest text-brand-text/60">
-            {dict?.greeting || "HELLO, WORLD"}
+            {dict?.greeting || "HELLO, I Am"}
           </p>
 
           <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-brand-text">

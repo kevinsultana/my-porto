@@ -40,7 +40,7 @@ export function HeroSection({ socialLinks, heroStats }) {
   return (
     <section id="home" className="scroll-mt-28">
       <motion.div
-        className="glass-card relative overflow-hidden rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+        className="glass-card relative overflow-hidden rounded-4xl px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -122,7 +122,7 @@ export function HeroSection({ socialLinks, heroStats }) {
           </div>
 
           <motion.div variants={itemVariants} className="relative">
-            <div className="glass-card relative overflow-hidden rounded-[2rem] p-4 sm:p-5 lg:p-6">
+            <div className="glass-card relative overflow-hidden rounded-4xl p-4 sm:p-5 lg:p-6">
               <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-400/20 blur-3xl" />
               <div className="absolute -bottom-16 -left-12 h-44 w-44 rounded-full bg-amber-400/14 blur-3xl" />
 
@@ -145,9 +145,9 @@ export function HeroSection({ socialLinks, heroStats }) {
                 </div>
 
                 <div className="mt-6 grid gap-4 md:grid-cols-[1.06fr_0.94fr]">
-                  <div className="relative overflow-hidden rounded-[1.5rem] border border-white/20 bg-white/10 p-4 backdrop-blur-md sm:p-5">
+                  <div className="relative overflow-hidden rounded-3xler border-white/20 bg-white/10 p-4 backdrop-blur-md sm:p-5">
                     <div className="absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-2xl" />
-                    <div className="relative flex h-full min-h-[300px] flex-col justify-between">
+                    <div className="relative flex h-full min-h-75 flex-col justify-between">
                       <div className="flex items-center justify-between text-xs uppercase tracking-[0.24em] text-white/72">
                         <span>Portfolio portrait</span>
                         <span className="rounded-full border border-white/20 px-3 py-1 text-[10px]">
@@ -180,7 +180,7 @@ export function HeroSection({ socialLinks, heroStats }) {
                   </div>
 
                   <div className="grid gap-4">
-                    <div className="rounded-[1.5rem] border border-white/20 bg-white/12 p-5 backdrop-blur-md">
+                    <div className="rounded-3xler border-white/20 bg-white/12 p-5 backdrop-blur-md">
                       <div className="flex items-center gap-2 text-sm font-medium text-white/92">
                         <MapPin className="h-4 w-4" />
                         Bekasi, Indonesia
@@ -191,7 +191,7 @@ export function HeroSection({ socialLinks, heroStats }) {
                       </p>
                     </div>
 
-                    <div className="rounded-[1.5rem] border border-white/20 bg-white/12 p-5 backdrop-blur-md">
+                    <div className="rounded-3xl border border-white/20 bg-white/12 p-5 backdrop-blur-md">
                       <p className="text-xs uppercase tracking-[0.24em] text-white/70">
                         Current focus
                       </p>
@@ -222,10 +222,7 @@ export function HeroSection({ socialLinks, heroStats }) {
           className="mt-6 grid gap-3 sm:grid-cols-3"
         >
           {heroStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="glass-card rounded-[1.5rem] px-5 py-4"
-            >
+            <div key={stat.label} className="glass-card rounded-3xl px-5 py-4">
               <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
                 {stat.label}
               </p>

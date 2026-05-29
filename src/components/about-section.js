@@ -54,7 +54,7 @@ export function AboutSection({ techStack }) {
       >
         <motion.div
           variants={itemVariants}
-          className="glass-card rounded-[2rem] p-7 sm:p-8 lg:p-10"
+          className="glass-card rounded-4xl p-7 sm:p-8 lg:p-10"
         >
           <p className="section-kicker text-xs font-semibold text-slate-500">
             About me
@@ -85,7 +85,7 @@ export function AboutSection({ techStack }) {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-[1.5rem] border border-slate-200 bg-white/80 p-5 backdrop-blur-xl"
+                className="rounded-3xl border border-slate-200 bg-white/80 p-5 backdrop-blur-xl"
               >
                 <p className="text-sm font-semibold text-slate-900">
                   {item.title}
@@ -108,7 +108,7 @@ export function AboutSection({ techStack }) {
 
         <motion.div
           variants={itemVariants}
-          className="glass-card rounded-[2rem] p-7 sm:p-8 lg:p-10"
+          className="glass-card rounded-4xl p-7 sm:p-8 lg:p-10"
         >
           <div className="flex items-end justify-between gap-4">
             <div>
@@ -130,7 +130,7 @@ export function AboutSection({ techStack }) {
                   key={item.name}
                   whileHover={{ y: -4, scale: 1.01 }}
                   transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="hover-aurora-glow group w-full rounded-[1.5rem] border border-slate-200 bg-white/82 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] backdrop-blur-xl"
+                  className="hover-aurora-glow group w-full rounded-3xl border border-slate-200 bg-white/82 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] backdrop-blur-xl"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-blue-600 shadow-[0_0_28px_rgba(59,130,246,0.08)]">

@@ -50,22 +50,22 @@
   --aurora-amber: 245 158 11;
 }
 
-@theme inline {
-  --color-background: rgb(var(--brand-bg) / <alpha-value>);
-  --color-foreground: rgb(var(--brand-text) / <alpha-value>);
-  --color-brand-bg: rgb(var(--brand-bg) / <alpha-value>);
-  --color-brand-paper: rgb(var(--brand-paper) / <alpha-value>);
-  --color-brand-text: rgb(var(--brand-text) / <alpha-value>);
-  --color-brand-ink: rgb(var(--brand-ink) / <alpha-value>);
-  --color-brand-blue: rgb(var(--brand-blue) / <alpha-value>);
-  --color-brand-purple: rgb(var(--brand-purple) / <alpha-value>);
-  --color-brand-pink: rgb(var(--brand-pink) / <alpha-value>);
-  --color-brand-mint: rgb(var(--brand-mint) / <alpha-value>);
-  --color-brand-amber: rgb(var(--brand-amber) / <alpha-value>);
-  --color-surface: rgb(var(--surface) / <alpha-value>);
-  --color-surface-strong: rgb(var(--surface-strong) / <alpha-value>);
-  --color-surface-border: rgb(var(--surface-border) / <alpha-value>);
-  --color-muted: rgb(var(--muted) / <alpha-value>);
+@theme {
+  --color-background: rgb(var(--brand-bg));
+  --color-foreground: rgb(var(--brand-text));
+  --color-brand-bg: rgb(var(--brand-bg));
+  --color-brand-paper: rgb(var(--brand-paper));
+  --color-brand-text: rgb(var(--brand-text));
+  --color-brand-ink: rgb(var(--brand-ink));
+  --color-brand-blue: rgb(var(--brand-blue));
+  --color-brand-purple: rgb(var(--brand-purple));
+  --color-brand-pink: rgb(var(--brand-pink));
+  --color-brand-mint: rgb(var(--brand-mint));
+  --color-brand-amber: rgb(var(--brand-amber));
+  --color-surface: rgb(var(--surface));
+  --color-surface-strong: rgb(var(--surface-strong));
+  --color-surface-border: rgb(var(--surface-border));
+  --color-muted: rgb(var(--muted));
   --font-sans: var(--font-jakarta);
   --font-mono: var(--font-mono-stack);
   --animate-scroll: scroll 40s linear infinite;

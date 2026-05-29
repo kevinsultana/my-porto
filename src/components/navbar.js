@@ -1,127 +1,157 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Menu,
-  User,
-  BriefcaseBusiness,
-  FolderOpen,
-  Mail,
-  X,
-} from "lucide-react";
-import { useState } from "react";
+import { Home, User, Briefcase, Folder, Mail, Globe } from "lucide-react";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+export default function Navbar({ locale = "en" }) {
+  const [activeSection, setActiveSection] = useState("home");
 
-const navIcons = {
-  Home: User,
-  About: User,
-  Experience: BriefcaseBusiness,
-  Projects: FolderOpen,
-  Contact: Mail,
-};
+  const isClickScrolling = useRef(false);
+  const timeoutRef = useRef(null);
 
-export function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    const handleIntersection = (entries) => {
+      if (isClickScrolling.current) return;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: "-20% 0px -50% 0px",
+      threshold: 0.1,
+    });
+
+    const sections = ["home", "about", "experience", "projects", "contact"];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const handleLanguageToggle = () => {
+    const nextLocale = locale === "id" ? "en" : "id";
+    const currentHash = window.location.hash;
+    window.location.href = `/${nextLocale}${currentHash}`;
+  };
+
+  const handleNavLinkClick = (id) => {
+    setActiveSection(id);
+    isClickScrolling.current = true;
+
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+    timeoutRef.current = setTimeout(() => {
+      isClickScrolling.current = false;
+    }, 1000);
+  };
+
+  const menuItems = [
+    {
+      id: "home",
+      name: locale === "id" ? "Beranda" : "Home",
+      path: "#home",
+      icon: Home,
+      color: "bg-brand-blue",
+    },
+    {
+      id: "about",
+      name: locale === "id" ? "Tentang" : "About",
+      path: "#about",
+      icon: User,
+      color: "bg-brand-pink",
+    },
+    {
+      id: "experience",
+      name: locale === "id" ? "Pengalaman" : "Experience",
+      path: "#experience",
+      icon: Briefcase,
+      color: "bg-brand-purple",
+    },
+    {
+      id: "projects",
+      name: locale === "id" ? "Proyek" : "Projects",
+      path: "#projects",
+      icon: Folder,
+      color: "bg-brand-amber",
+    },
+    {
+      id: "contact",
+      name: locale === "id" ? "Kontak" : "Contact",
+      path: "#contact",
+      icon: Mail,
+      color: "bg-brand-text",
+    },
+  ];
 
   return (
-    <div className="fixed inset-x-0 top-4 z-50 px-3 sm:px-4 lg:px-6">
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        className="mx-auto w-full max-w-5xl"
-      >
-        <div className="glass-card flex items-center justify-between rounded-full px-4 py-3 sm:px-5">
-          <a
-            href="#home"
-            className="group flex items-center gap-3 text-sm font-semibold tracking-wide text-slate-900 transition-all duration-300 ease-out hover:text-blue-600"
-            onClick={() => setMobileOpen(false)}
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-900 shadow-[0_10px_24px_rgba(15,23,42,0.08)] transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_rgba(37,99,235,0.12)]">
-              KS.
-            </span>
-            <span className="hidden sm:inline">Kevin Sultana Herman</span>
-          </a>
-
-          <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white/90 px-2 py-1.5 backdrop-blur-xl md:flex md:gap-2">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-slate-100 hover:text-slate-900"
-              >
-                {navIcons[item.label] ? (
-                  <span className="text-[11px] text-slate-400">
-                    {(() => {
-                      const Icon = navIcons[item.label];
-                      return <Icon className="h-3.5 w-3.5" />;
-                    })()}
-                  </span>
-                ) : null}
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden items-center gap-3 md:flex">
-            <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
-              EN
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((value) => !value)}
-            className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white p-2 text-slate-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-blue-600 md:hidden"
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-          >
-            {mobileOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </button>
-        </div>
-
-        <motion.div
-          id="mobile-navigation"
-          initial={false}
-          animate={
-            mobileOpen
-              ? { opacity: 1, y: 0, height: "auto" }
-              : { opacity: 0, y: -10, height: 0 }
-          }
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="overflow-hidden md:hidden"
+    <header className="fixed bottom-4 md:top-4 md:bottom-auto inset-x-0 z-50 flex justify-center px-4 transition-all duration-300">
+      <nav className="flex items-center gap-1 md:gap-2 bg-white/80 backdrop-blur-md border-2 border-brand-text/10 px-2 md:px-4 py-2 rounded-full shadow-lg">
+        {/* Logo */}
+        <a
+          href="#home"
+          onClick={() => handleNavLinkClick("home")}
+          className="font-black text-lg md:text-xl tracking-tighter px-2 text-brand-text hover:scale-105 transition-transform"
         >
-          <div className="mt-3 rounded-3xl border border-slate-200 bg-white/90 p-2 backdrop-blur-xl shadow-[0_20px_50px_rgba(15,23,42,0.1)]">
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="whitespace-nowrap rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-slate-100 hover:text-slate-900"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <span className="whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-500">
-                EN
+          DV<span className="text-brand-pink">.</span>
+        </a>
+
+        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-1" />
+
+        {/* Menu Navigasi */}
+        {menuItems.map((item) => {
+          const isActive = activeSection === item.id;
+          const Icon = item.icon;
+
+          return (
+            <a
+              key={item.id}
+              href={item.path}
+              onClick={() => handleNavLinkClick(item.id)}
+              className="relative px-3 md:px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-colors text-brand-text"
+              title={item.name}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="activeNav"
+                  className={`absolute inset-0 rounded-full ${item.color} -z-10`}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <Icon
+                className={`w-4 h-4 md:w-4 md:h-4 ${isActive ? "text-white" : "text-brand-text"}`}
+              />
+
+              <span
+                className={`hidden lg:block ${isActive ? "text-white" : "hover:text-brand-purple transition-colors"}`}
+              >
+                {item.name}
               </span>
-            </div>
-          </div>
-        </motion.div>
-      </motion.header>
-    </div>
+            </a>
+          );
+        })}
+
+        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-1" />
+
+        {/* Language Switcher */}
+        <button
+          onClick={handleLanguageToggle}
+          className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 border border-brand-text/10 rounded-full text-xs font-black bg-brand-text/5 hover:bg-brand-text/10 text-brand-text transition-all active:scale-95"
+        >
+          <Globe className="w-3.5 h-3.5 text-brand-text/70" />
+          <span>{locale.toUpperCase()}</span>
+        </button>
+      </nav>
+    </header>
   );
 }

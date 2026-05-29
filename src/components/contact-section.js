@@ -1,201 +1,224 @@
 "use client";
 
-import { submitContactForm } from "@/app/actions";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
-import { useActionState } from "react";
+import { Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 
-const initialState = {
-  status: "idle",
-  message: "",
-};
+export default function ContactSection({ dict }) {
+  // State untuk melacak status pengiriman (idle, loading, success, error)
+  const [status, setStatus] = useState("idle");
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } },
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-const contactIcons = {
-  email: Mail,
-  whatsapp: FaWhatsapp,
-  linkedin: FaLinkedinIn,
-  github: FaGithub,
-};
+    try {
+      // PENTING: Ganti URL di bawah dengan link endpoint asli dari Formspree Anda
+      const response = await fetch("https://formspree.io/f/xojbeear", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json", // Kunci agar Formspree mengembalikan JSON, bukan redirect
+        },
+      });
 
-export function ContactSection({ socialLinks }) {
-  const [state, formAction, pending] = useActionState(
-    submitContactForm,
-    initialState,
-  );
+      if (response.ok) {
+        setStatus("success");
+        form.reset(); // Kosongkan form setelah sukses
+
+        // Kembalikan ke status awal setelah 5 detik agar bisa kirim pesan lagi
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
 
   return (
-    <section id="contact" className="scroll-mt-28 pb-8">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.22 }}
-        variants={containerVariants}
-        className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
-      >
-        <motion.div
-          variants={itemVariants}
-          className="glass-card rounded-[30px] p-7 sm:p-8 lg:p-10"
-        >
-          <p className="section-kicker text-xs font-semibold text-slate-500">
-            Contact
-          </p>
-          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl">
-            Get in touch.
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Have a project idea, a question, or just want to say hi? Feel free
-            to drop a message. I’m always open to new collaborative
-            opportunities.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[28px] border border-slate-200 bg-white/82 p-5 backdrop-blur-xl">
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Email
+    <section id="contact" className="scroll-mt-14 py-8 md:py-12 relative">
+      <div className="max-w-5xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          {/* Kolom Kiri: Teks & Info Kontak */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 space-y-8"
+          >
+            <div>
+              <h3 className="text-4xl md:text-5xl font-black tracking-tight text-brand-text mb-4">
+                {dict?.title || "Mari Berdiskusi"}{" "}
+                <span className="text-brand-purple">
+                  {dict?.accent || "Bersama"}
+                </span>
+                .
+              </h3>
+              <p className="text-lg text-brand-text/70 font-medium leading-relaxed">
+                {dict?.subtitle ||
+                  "Tertarik untuk berkolaborasi atau memiliki pertanyaan seputar pengembangan web dan infrastruktur server? Jangan ragu untuk menghubungi saya."}
               </p>
-              <a
-                href={socialLinks.email}
-                className="mt-3 block break-all text-lg font-semibold text-slate-950 transition hover:text-blue-600"
-              >
-                hello@kevinsultanaherman.com
-              </a>
             </div>
 
-            <div className="rounded-[28px] border border-slate-200 bg-white/82 p-5 backdrop-blur-xl">
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Location
-              </p>
-              <div className="mt-3 flex items-center gap-2 text-lg font-semibold text-slate-950">
-                <MapPin className="h-4 w-4 text-blue-600" />
-                Bekasi, Indonesia
+            {/* Kartu Info Kontak */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0 border border-brand-blue/20">
+                  <Mail className="w-5 h-5 text-brand-blue" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-brand-text/60 uppercase tracking-wide">
+                    Email
+                  </p>
+                  {/* Jangan lupa sesuaikan alamat email di href dan teks di bawah ini */}
+                  <a
+                    href="mailto:kevinsultanaherman@gmail.com"
+                    className="text-lg font-black text-brand-text hover:text-brand-purple transition-colors"
+                  >
+                    kevinsultanaherman@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-brand-pink/10 flex items-center justify-center shrink-0 border border-brand-pink/20">
+                  <MapPin className="w-5 h-5 text-brand-pink" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-brand-text/60 uppercase tracking-wide">
+                    Lokasi
+                  </p>
+                  <p className="text-lg font-black text-brand-text">
+                    Cibubur, Indonesia
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <motion.form action={formAction} className="mt-8 space-y-4">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <label className="space-y-2 text-sm font-medium text-slate-700">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your name"
-                  className="glass-input w-full rounded-2xl px-4 py-3 text-sm"
-                />
-              </label>
-              <label className="space-y-2 text-sm font-medium text-slate-700">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@example.com"
-                  className="glass-input w-full rounded-2xl px-4 py-3 text-sm"
-                />
-              </label>
-            </div>
+          {/* Kolom Kanan: Formulir Kontak AJAX */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex-1"
+          >
+            <div className="bg-white border border-brand-text/10 rounded-[32px] p-8 md:p-10 shadow-lg relative overflow-hidden">
+              {/* Overlay Pesan Sukses */}
+              {status === "success" && (
+                <div className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-20 h-20 bg-brand-mint/20 text-brand-mint rounded-full flex items-center justify-center mb-6"
+                  >
+                    <CheckCircle2 className="w-10 h-10" />
+                  </motion.div>
+                  <h4 className="text-2xl font-black text-brand-text mb-2">
+                    Pesan Terkirim!
+                  </h4>
+                  <p className="text-brand-text/70 font-medium">
+                    Terima kasih telah menghubungi. Saya akan segera membalas
+                    pesan Anda.
+                  </p>
+                </div>
+              )}
 
-            <label className="block space-y-2 text-sm font-medium text-slate-700">
-              Message
-              <textarea
-                name="message"
-                required
-                rows={6}
-                placeholder="Tell me about your project, infrastructure goals, or the kind of collaboration you need."
-                className="glass-input w-full rounded-3xl px-4 py-3 text-sm leading-relaxed"
-              />
-            </label>
+              {/* Formulir */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-bold text-brand-text/80 pl-2"
+                  >
+                    {dict?.name || "Nama Lengkap"}
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder={dict?.namePlaceholder || "Masukkan nama Anda"}
+                    disabled={status === "loading"}
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    required
+                  />
+                </div>
 
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <p
-                aria-live="polite"
-                className={`text-sm ${state.status === "success" ? "text-emerald-600" : state.status === "error" ? "text-rose-600" : "text-slate-500"}`}
-              >
-                {state.message ||
-                  "I usually respond with clear next steps and practical feedback."}
-              </p>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-bold text-brand-text/80 pl-2"
+                  >
+                    {dict?.email || "Email"}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder={
+                      dict?.emailPlaceholder || "Masukkan email Anda"
+                    }
+                    disabled={status === "loading"}
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    required
+                  />
+                </div>
 
-              <button
-                type="submit"
-                disabled={pending}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white shadow-[0_16px_36px_rgba(15,23,42,0.18)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <Send className="h-4 w-4" />
-                {pending ? "Sending..." : "Send Message"}
-              </button>
-            </div>
-          </motion.form>
-        </motion.div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-bold text-brand-text/80 pl-2"
+                  >
+                    {dict?.message || "Pesan"}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    placeholder={
+                      dict?.messagePlaceholder ||
+                      "Tuliskan pesan Anda di sini..."
+                    }
+                    disabled={status === "loading"}
+                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 resize-none disabled:opacity-50"
+                    required
+                  ></textarea>
+                </div>
 
-        <motion.div
-          variants={itemVariants}
-          className="glass-card rounded-[30px] p-7 sm:p-8 lg:p-10"
-        >
-          <p className="section-kicker text-xs font-semibold text-slate-500">
-            Reach out
-          </p>
-          <h3 className="text-balance mt-4 text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl">
-            Prefer a direct channel?
-          </h3>
-          <p className="mt-5 text-base leading-relaxed text-muted">
-            These shortcuts are set up for quick access to the channels people
-            use first.
-          </p>
+                {/* Pesan Error jika gagal */}
+                {status === "error" && (
+                  <p className="text-red-500 text-sm font-bold text-center">
+                    Gagal mengirim pesan. Silakan coba lagi nanti.
+                  </p>
+                )}
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            {[
-              { key: "email", href: socialLinks.email, label: "Email" },
-              {
-                key: "whatsapp",
-                href: socialLinks.whatsapp,
-                label: "WhatsApp",
-              },
-              {
-                key: "linkedin",
-                href: socialLinks.linkedin,
-                label: "LinkedIn",
-              },
-              { key: "github", href: socialLinks.github, label: "GitHub" },
-            ].map((item) => {
-              const Icon = contactIcons[item.key];
-
-              return (
-                <motion.a
-                  key={item.key}
-                  href={item.href}
-                  target={item.key === "email" ? undefined : "_blank"}
-                  rel={item.key === "email" ? undefined : "noreferrer"}
-                  whileHover={{ y: -5, scale: 1.03 }}
-                  className="hover-aurora-glow glass-button inline-flex h-14 w-14 items-center justify-center rounded-2xl text-slate-700 transition-all duration-300 ease-out hover:text-blue-600"
-                  aria-label={item.label}
-                  title={item.label}
+                {/* Tombol Kirim Dinamis */}
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="w-full inline-flex justify-center items-center gap-2 px-8 py-4 bg-brand-text text-white font-black rounded-2xl shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-brand-text cursor-pointer disabled:cursor-not-allowed"
                 >
-                  <Icon className="h-5 w-5" />
-                </motion.a>
-              );
-            })}
-          </div>
-
-          <div className="mt-10 rounded-[28px] border border-slate-200 bg-white/82 p-5 backdrop-blur-md">
-            <p className="text-sm text-slate-500">Current stack focus</p>
-            <p className="mt-2 text-lg font-medium text-slate-950">
-              Next.js, React, DevOps automation, and homelab infrastructure.
-            </p>
-          </div>
-        </motion.div>
-      </motion.div>
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" /> Mengirim...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" /> {dict?.send || "Kirim Pesan"}
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

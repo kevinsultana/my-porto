@@ -1,156 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Atom,
-  Boxes,
-  CloudCog,
-  Code2,
-  Database,
-  GitBranch,
-  Globe,
-  Layers3,
-  Server,
-  ShieldCheck,
-  TerminalSquare,
-  Workflow,
-  ArrowRight,
-} from "lucide-react";
+import { Download } from "lucide-react";
 
-const iconMap = {
-  Atom,
-  Boxes,
-  CloudCog,
-  Code2,
-  Database,
-  GitBranch,
-  Globe,
-  Layers3,
-  Server,
-  ShieldCheck,
-  TerminalSquare,
-  Workflow,
-};
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.07 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export function AboutSection({ techStack }) {
+export default function AboutSection({ dict }) {
   return (
-    <section id="about" className="scroll-mt-28">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.28 }}
-        variants={containerVariants}
-        className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]"
-      >
+    <section id="about" className="scroll-mt-14 py-8 md:py-12">
+      <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 max-w-5xl mx-auto px-6">
+        {/* KOLOM KIRI: Foto Bersih & Elegan (Tanpa Blur/Glow Berat) */}
         <motion.div
-          variants={itemVariants}
-          className="glass-card rounded-4xl p-7 sm:p-8 lg:p-10"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative w-full max-w-xs md:max-w-sm shrink-0"
         >
-          <p className="section-kicker text-xs font-semibold text-slate-500">
-            About me
-          </p>
-          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl">
-            I AM KEVIN SULTANA HERMAN, FULL-STACK DEVELOPER.
-          </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-            As a Senior Software Programmer & Full-stack Developer, I turn
-            product goals into clean interfaces, dependable backend flows, and
-            practical infrastructure decisions. My focus spans the Next.js
-            ecosystem, modern web architecture, DevOps, and Linux server
-            management.
-          </p>
+          {/* Aksen Background Solid yang Lembut (Sangat ringan diproses) */}
+          <div className="absolute inset-0 bg-brand-amber/15 rounded-4xl transform translate-x-4 translate-y-4 -rotate-3" />
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {[
-              {
-                title: "Full-stack execution",
-                detail:
-                  "From user-facing interfaces to API integration and data flow design.",
-              },
-              {
-                title: "Infrastructure mindset",
-                detail:
-                  "Comfortable with server builds, deployment hygiene, and homelab-grade reliability.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-slate-200 bg-white/80 p-5 backdrop-blur-xl"
-              >
-                <p className="text-sm font-semibold text-slate-900">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
+          {/* Frame Foto Utama */}
+          <div className="relative aspect-4/5 bg-white rounded-4xl shadow-xl border border-brand-text/5 overflow-hidden z-10">
+            <img
+              src="/images/about.jpg"
+              alt="Profil Kevin Sultana"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
           </div>
-
-          <a
-            href="#contact"
-            className="glass-button mt-8 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-slate-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-slate-950"
-          >
-            Let’s work together
-            <ArrowRight className="h-4 w-4" />
-          </a>
         </motion.div>
 
+        {/* KOLOM KANAN: Teks Rapi, Solid, & Profesional */}
         <motion.div
-          variants={itemVariants}
-          className="glass-card rounded-4xl p-7 sm:p-8 lg:p-10"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex-1 space-y-6"
         >
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="section-kicker text-xs font-semibold text-slate-500">
-                Tech stack
-              </p>
-              <h3 className="text-balance mt-4 text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl">
-                Tools I reach for when building durable product systems.
-              </h3>
-            </div>
+          {/* Sapaan dengan Aksen Solid Color (Tidak norak) */}
+          <h3 className="text-3xl md:text-4xl font-black leading-snug text-brand-text uppercase">
+            {dict?.greeting || "Halo, saya"} {/* Pil Nama: Solid Biru */}
+            <span className="bg-brand-blue text-white px-3 py-1 rounded-xl whitespace-nowrap inline-block -rotate-1 shadow-sm">
+              {dict?.name || "Kevin Sultana Herman"}
+            </span>
+            , <br className="hidden md:block" />
+            {/* Pil Role: Solid Mint */}
+            <span className="bg-brand-mint text-brand-text px-3 py-1 mt-3 inline-block rounded-xl whitespace-nowrap rotate-1 shadow-sm">
+              {dict?.role || "Full-stack Developer & DevOps"}
+            </span>
+          </h3>
+
+          {/* Bio Rapi dengan Garis Samping Solid */}
+          <div className="border-l-4 border-brand-purple pl-6 py-2 my-6">
+            <p className="text-lg whitespace-pre-line text-brand-text/70 font-medium leading-relaxed">
+              {dict?.bio ||
+                "Berpengalaman membangun arsitektur web modern menggunakan Next.js, React, dan Express.js. Saya memiliki minat mendalam dalam manajemen infrastruktur, Linux server, dan mengoptimalkan lingkungan deployment untuk skalabilitas tinggi."}
+            </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {techStack.map((item) => {
-              const Icon = iconMap[item.icon] || Code2;
-
-              return (
-                <motion.div
-                  key={item.name}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="hover-aurora-glow group w-full rounded-3xl border border-slate-200 bg-white/82 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] backdrop-blur-xl"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-blue-600 shadow-[0_0_28px_rgba(59,130,246,0.08)]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-base font-semibold tracking-tight text-slate-900">
-                        {item.name}
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                        {item.detail}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+          {/* Tombol Clean & Modern */}
+          <div className="pt-2">
+            <a
+              href="/CV-KevinSultanaHerman.pdf"
+              download="CV-KevinSultanaHerman.pdf"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-text text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <Download className="w-5 h-5" />{" "}
+              {dict?.downloadCv || "Download CV"}
+            </a>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

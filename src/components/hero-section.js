@@ -1,238 +1,194 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { Briefcase, Mail } from "lucide-react";
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.08,
-    },
-  },
-};
+export default function HeroSection({ dict }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
-};
+  const xSpring = useSpring(x, { stiffness: 150, damping: 22 });
+  const ySpring = useSpring(y, { stiffness: 150, damping: 22 });
 
-const socialIcons = {
-  github: FaGithub,
-  linkedin: FaLinkedinIn,
-  whatsapp: FaWhatsapp,
-  email: Mail,
-};
-
-export function HeroSection({ socialLinks, heroStats }) {
-  const socialItems = [
-    { key: "github", href: socialLinks.github, label: "GitHub" },
-    { key: "linkedin", href: socialLinks.linkedin, label: "LinkedIn" },
-    { key: "whatsapp", href: socialLinks.whatsapp, label: "WhatsApp" },
-    { key: "email", href: socialLinks.email, label: "Email" },
-  ];
+  const rotateX = useTransform(ySpring, [-300, 300], [15, -15]);
+  const rotateY = useTransform(xSpring, [-300, 300], [-15, 15]);
 
   return (
-    <section id="home" className="scroll-mt-28">
-      <motion.div
-        className="glass-card relative overflow-hidden rounded-4xl px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_top_right,rgba(245,158,11,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.04),transparent_26%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-blue-300/80 to-transparent" />
+    <section id="home" className="py-12 md:py-20 scroll-mt-28">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+        {/* Kolom Kiri */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex-1 space-y-6 text-left"
+        >
+          <p className="text-sm font-bold uppercase tracking-widest text-brand-text/60">
+            {dict?.greeting || "HELLO, WORLD"}
+          </p>
 
-        <div className="relative grid gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-12">
-          <div className="space-y-8">
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-sm text-slate-600 backdrop-blur-xl"
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-brand-text">
+            Kevin Sultana <span className="text-brand-blue">Herman</span>.
+          </h1>
+
+          <p className="text-2xl font-bold text-brand-text/90">
+            {dict?.role || "Senior Full-stack Developer & DevOps Enthusiast"}
+          </p>
+
+          <div className="flex gap-5 items-center text-brand-text/60">
+            <a
+              href="https://github.com/kevinsultana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-purple transition-colors"
+              title="GitHub"
             >
-              <Sparkles className="h-4 w-4 text-blue-600" />
-              Building polished software, infrastructure, and self-hosted
-              systems
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="space-y-5">
-              <p className="section-kicker text-xs font-semibold text-slate-500">
-                Portfolio / 2026
-              </p>
-              <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[0.96] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl xl:text-8xl">
-                <span className="aurora-text block">Kevin Sultana</span>
-              </h1>
-
-              <p className="max-w-2xl text-xl font-semibold leading-tight text-slate-800 sm:text-2xl lg:text-3xl">
-                Full-stack Developer & Mobile App Developer.
-              </p>
-
-              <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-                I design and ship modern web platforms with the Next.js
-                ecosystem, modern web architecture, DevOps, and Linux Server
-                Management.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col gap-3 sm:flex-row"
-            >
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white shadow-[0_16px_36px_rgba(15,23,42,0.18)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-blue-600"
+              <svg
+                className="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                View Projects
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#contact"
-                className="glass-button inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1"
-              >
-                Contact Me
-                <Download className="h-4 w-4" />
-              </a>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-3"
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+            {/* Tautan Instagram bisa Anda isi dengan milik Anda atau tautan bisnis Anda */}
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-pink transition-colors"
+              title="Instagram"
             >
-              {socialItems.map((item) => {
-                const Icon = socialIcons[item.key];
-
-                return (
-                  <a
-                    key={item.key}
-                    href={item.href}
-                    target={item.key === "email" ? undefined : "_blank"}
-                    rel={item.key === "email" ? undefined : "noreferrer"}
-                    aria-label={item.label}
-                    className="glass-button inline-flex h-12 w-12 items-center justify-center rounded-full text-slate-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:text-blue-600"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                );
-              })}
-            </motion.div>
+              <svg
+                className="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/kevinsultanaherman"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-blue transition-colors"
+              title="LinkedIn"
+            >
+              <svg
+                className="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
           </div>
 
-          <motion.div variants={itemVariants} className="relative">
-            <div className="glass-card relative overflow-hidden rounded-4xl p-4 sm:p-5 lg:p-6">
-              <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-400/20 blur-3xl" />
-              <div className="absolute -bottom-16 -left-12 h-44 w-44 rounded-full bg-amber-400/14 blur-3xl" />
+          <p className="text-lg text-brand-text/70 max-w-xl font-medium leading-relaxed">
+            {dict?.tagline ||
+              "Membangun arsitektur web modern dengan ekosistem Next.js, dan mengelola infrastruktur server yang tangguh."}
+          </p>
 
-              <div className="relative overflow-hidden rounded-[1.75rem] bg-[linear-gradient(145deg,#1d4ed8_0%,#2563eb_36%,#60a5fa_100%)] p-4 text-white shadow-[0_24px_64px_rgba(37,99,235,0.24)] sm:p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-white/72">
-                      Full-stack portfolio
-                    </p>
-                    <h2 className="mt-2 text-2xl font-semibold leading-tight sm:text-3xl">
-                      Kevin Sultana Herman
-                    </h2>
-                    <p className="mt-1 text-sm text-white/82">
-                      Senior Software Programmer
-                    </p>
-                  </div>
-                  <div className="rounded-full border border-white/20 bg-white/12 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
-                    Online
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-4 md:grid-cols-[1.06fr_0.94fr]">
-                  <div className="relative overflow-hidden rounded-3xler border-white/20 bg-white/10 p-4 backdrop-blur-md sm:p-5">
-                    <div className="absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-2xl" />
-                    <div className="relative flex h-full min-h-75 flex-col justify-between">
-                      <div className="flex items-center justify-between text-xs uppercase tracking-[0.24em] text-white/72">
-                        <span>Portfolio portrait</span>
-                        <span className="rounded-full border border-white/20 px-3 py-1 text-[10px]">
-                          2026
-                        </span>
-                      </div>
-
-                      <div className="flex flex-1 items-center justify-center">
-                        <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-white/20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.45),rgba(255,255,255,0.14)_42%,rgba(15,23,42,0.08)_100%)] shadow-[0_18px_42px_rgba(15,23,42,0.18)]">
-                          <span className="text-5xl font-semibold tracking-tight text-white">
-                            KS
-                          </span>
-                          <span className="absolute -bottom-3 rounded-full border border-white/20 bg-slate-950/10 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-white/85 backdrop-blur-md">
-                            Next.js
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 gap-2 text-xs text-white/86">
-                        {["DevOps", "Linux", "React"].map((label) => (
-                          <div
-                            key={label}
-                            className="rounded-2xl border border-white/20 bg-white/12 px-3 py-3 text-center backdrop-blur-md"
-                          >
-                            {label}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4">
-                    <div className="rounded-3xler border-white/20 bg-white/12 p-5 backdrop-blur-md">
-                      <div className="flex items-center gap-2 text-sm font-medium text-white/92">
-                        <MapPin className="h-4 w-4" />
-                        Bekasi, Indonesia
-                      </div>
-                      <p className="mt-3 text-sm leading-relaxed text-white/80">
-                        Building clean interfaces, resilient backend flows, and
-                        the infrastructure behind them.
-                      </p>
-                    </div>
-
-                    <div className="rounded-3xl border border-white/20 bg-white/12 p-5 backdrop-blur-md">
-                      <p className="text-xs uppercase tracking-[0.24em] text-white/70">
-                        Current focus
-                      </p>
-                      <div className="mt-4 space-y-3">
-                        {[
-                          "Next.js app architecture",
-                          "DevOps automation",
-                          "Linux server management",
-                        ].map((item) => (
-                          <div
-                            key={item}
-                            className="rounded-2xl border border-white/16 bg-white/10 px-4 py-3 text-sm text-white/88"
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-6 grid gap-3 sm:grid-cols-3"
-        >
-          {heroStats.map((stat) => (
-            <div key={stat.label} className="glass-card rounded-3xl px-5 py-4">
-              <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
-                {stat.label}
-              </p>
-              <p className="mt-2 text-lg font-semibold text-slate-900">
-                {stat.value}
-              </p>
-            </div>
-          ))}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-black rounded-full shadow-md transition-colors text-base"
+            >
+              <Briefcase className="w-5 h-5" />{" "}
+              {dict?.ctaProjects || "Lihat Proyek"}
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-3 border-2 border-brand-text/10 hover:border-brand-text/20 text-brand-text/80 font-black rounded-full transition-colors text-base"
+            >
+              <Mail className="w-5 h-5" /> {dict?.ctaContact || "Hubungi Saya"}
+            </a>
+          </div>
         </motion.div>
-      </motion.div>
+
+        {/* Kolom Kanan: Kartu Profil Clean & Modern */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex-1 flex justify-center md:justify-end"
+        >
+          <div
+            className="relative w-full max-w-sm perspective-1000"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              x.set(e.clientX - (rect.left + rect.width / 2));
+              y.set(e.clientY - (rect.top + rect.height / 2));
+            }}
+            onMouseLeave={() => {
+              x.set(0);
+              y.set(0);
+            }}
+          >
+            {/* EFEK NEON HALUS */}
+            <div className="absolute -inset-1 bg-linear-to-tr from-brand-blue to-brand-purple rounded-[34px] blur-md opacity-40 -z-10 group-hover:opacity-60 transition-opacity" />
+
+            <motion.div
+              className="relative aspect-3/4 w-full max-w-sm rounded-4xl overflow-hidden shadow-2xl border border-white/20"
+              style={{ rotateX, rotateY }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {/* Gambar Utama */}
+              <img
+                src="/images/hero.webp"
+                alt="Kevin Sultana Herman"
+                className="w-full h-full object-cover"
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+
+              <div className="absolute top-10 left-10 text-white">
+                <h3 className="text-3xl font-black tracking-tight">
+                  Kevin Sultana <span className="text-brand-amber">Herman</span>
+                </h3>
+                <p className="text-base font-bold text-white/80">
+                  Senior Full-stack Developer
+                </p>
+              </div>
+
+              {/* Bento Detail Bawah */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-md border border-white/10">
+                <div className="flex items-center gap-3">
+                  {/* Avatar Mini */}
+                  <img
+                    src="/images/hero2.webp"
+                    alt="Foto Profil kevinsultana"
+                    className="w-10 h-10 rounded-full border border-white/20 object-cover"
+                  />
+                  <div>
+                    <p className="text-base font-black text-white/90">
+                      @kevinsultana
+                    </p>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-[0_0_10px_2px_rgba(34,211,238,0.8)]" />
+                      <p className="text-xs font-bold text-white/90">Online</p>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="#contact"
+                  className="px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs font-black rounded-full transition-colors backdrop-blur-sm"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

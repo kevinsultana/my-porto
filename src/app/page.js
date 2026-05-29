@@ -1,10 +1,11 @@
-import {
-  AboutSection,
-  ContactSection,
-  HeroSection,
-  Navbar,
-  ProjectsSection,
-} from "@/components";
+import HeroSection from "@/components/hero-section";
+import Navbar from "@/components/navbar";
+import AboutSection from "@/components/about-section";
+import SkillsSection from "@/components/skills-section";
+import CertificatesSection from "@/components/certificates-section";
+import Experience from "@/components/experience-section";
+import ProjectsSection from "@/components/projects-section";
+import ContactSection from "@/components/contact-section";
 
 const techStack = [
   {
@@ -103,6 +104,9 @@ export default function Home() {
           ]}
         />
         <AboutSection techStack={techStack} />
+        <SkillsSection />
+        <CertificatesSection />
+        <Experience />
         <ProjectsSection projects={projects} />
         <ContactSection
           socialLinks={socialLinks}

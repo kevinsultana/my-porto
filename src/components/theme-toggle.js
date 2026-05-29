@@ -47,9 +47,7 @@ export default function ThemeToggle() {
             exit={{ opacity: 0, y: -4, scale: 0.92 }}
             transition={{ duration: 0.18 }}
             className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] font-black uppercase tracking-[0.22em] text-brand-text"
-          >
-            {isDark ? "Dark" : "Light"}
-          </motion.span>
+          ></motion.span>
         )}
       </AnimatePresence>
     </button>

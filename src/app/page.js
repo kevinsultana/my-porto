@@ -103,11 +103,11 @@ export default function Home() {
             { label: "Full-stack delivery", value: "End to end" },
           ]}
         />
-        <AboutSection techStack={techStack} />
+        <ProjectsSection projects={projects} />
         <SkillsSection />
         <CertificatesSection />
         <Experience />
-        <ProjectsSection projects={projects} />
+        <AboutSection techStack={techStack} />
         <ContactSection
           socialLinks={socialLinks}
           location="Bekasi, Indonesia"

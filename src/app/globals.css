@@ -76,6 +76,32 @@
   box-sizing: border-box;
 }
 
+:where(
+  body,
+  main,
+  section,
+  header,
+  nav,
+  div,
+  span,
+  p,
+  a,
+  button,
+  input,
+  textarea,
+  label
+) {
+  transition:
+    background-color 320ms ease,
+    color 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    fill 320ms ease,
+    stroke 320ms ease,
+    text-decoration-color 320ms ease,
+    transform 320ms ease;
+}
+
 html {
   scroll-behavior: smooth;
   color-scheme: light;
@@ -116,6 +142,10 @@ body {
       rgb(var(--brand-bg) / 1) 100%
     );
   background-attachment: fixed;
+  transition:
+    background-color 320ms ease,
+    color 320ms ease,
+    background-image 320ms ease;
 }
 
 body::before {
@@ -132,6 +162,42 @@ body::before {
   mask-image: radial-gradient(circle at center, black 18%, transparent 88%);
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 320ms ease;
+  background-image:
+    radial-gradient(
+      circle at 18% 16%,
+      rgb(var(--brand-blue) / 0.12),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 82% 10%,
+      rgb(var(--brand-purple) / 0.1),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 50% 112%,
+      rgb(var(--brand-amber) / 0.08),
+      transparent 20%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(var(--brand-bg) / 0.14),
+      rgb(var(--brand-bg) / 0.04)
+    );
+}
+
+.dark body::after,
+html.dark body::after {
+  opacity: 1;
+}
+
 ::selection {
   background: rgb(var(--brand-pink) / 0.28);
   color: #ffffff;
@@ -140,6 +206,9 @@ body::before {
 .portfolio-shell {
   position: relative;
   isolation: isolate;
+  transition:
+    background-color 320ms ease,
+    color 320ms ease;
 }
 
 .portfolio-shell::before,
@@ -192,9 +261,11 @@ body::before {
     0 24px 70px rgb(var(--shadow-rgb) / 0.28),
     inset 0 1px 0 rgb(255 255 255 / 0.06);
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms ease,
+    background-color 320ms ease,
+    color 320ms ease;
 }
 
 .glass-card:hover {
@@ -217,11 +288,11 @@ body::before {
     0 12px 28px rgb(var(--shadow-rgb) / 0.24),
     inset 0 1px 0 rgb(255 255 255 / 0.05);
   transition:
-    transform 300ms ease-out,
-    box-shadow 300ms ease-out,
-    border-color 300ms ease-out,
-    color 300ms ease-out,
-    background-color 300ms ease-out;
+    transform 320ms ease,
+    box-shadow 320ms ease,
+    border-color 320ms ease,
+    color 320ms ease,
+    background-color 320ms ease;
 }
 
 .glass-button:hover {
@@ -232,9 +303,11 @@ body::before {
 
 .hover-aurora-glow {
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms ease,
+    background-color 320ms ease,
+    color 320ms ease;
 }
 
 .hover-aurora-glow:hover {
@@ -251,9 +324,11 @@ body::before {
   color: rgb(var(--brand-text) / 1);
   outline: none;
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms ease,
+    background-color 320ms ease,
+    color 320ms ease;
 }
 
 .glass-input::placeholder {

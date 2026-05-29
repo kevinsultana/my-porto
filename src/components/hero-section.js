@@ -152,7 +152,8 @@ export default function HeroSection({ dict }) {
 
               <div className="absolute top-10 left-10 text-white">
                 <h3 className="text-3xl font-black tracking-tight">
-                  Kevin Sultana <span className="text-brand-amber">Herman</span>
+                  Kevin Sultana{" "}
+                  <span className="text-brand-purple">Herman</span>
                 </h3>
                 <p className="text-base font-bold text-white/80">
                   Senior Full-stack Developer

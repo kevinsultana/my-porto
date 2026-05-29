@@ -89,7 +89,7 @@ const socialLinks = {
 
 export default function Home() {
   return (
-    <main className="portfolio-shell relative isolate overflow-hidden bg-background text-foreground selection:bg-blue-500/20 selection:text-slate-950">
+    <main className="portfolio-shell relative isolate overflow-hidden bg-background text-foreground selection:bg-brand-pink selection:text-white">
       <Navbar />
       <div className="pointer-events-none absolute inset-0 -z-20 subtle-grid" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(245,158,11,0.08),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(15,23,42,0.06),transparent_28%)]" />

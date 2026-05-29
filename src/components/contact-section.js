@@ -109,7 +109,7 @@ export default function ContactSection({ dict }) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex-1"
           >
-            <div className="bg-white border border-brand-text/10 rounded-[32px] p-8 md:p-10 shadow-lg relative overflow-hidden">
+            <div className="bg-white border border-brand-text/10 rounded-4xl p-8 md:p-10 shadow-lg relative overflow-hidden">
               {/* Overlay Pesan Sukses */}
               {status === "success" && (
                 <div className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">

@@ -109,10 +109,10 @@ export default function ContactSection({ dict }) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex-1"
           >
-            <div className="bg-white border border-brand-text/10 rounded-4xl p-8 md:p-10 shadow-lg relative overflow-hidden">
+            <div className="bg-surface border border-surface-border rounded-4xl p-8 md:p-10 shadow-lg relative overflow-hidden">
               {/* Overlay Pesan Sukses */}
               {status === "success" && (
-                <div className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8">
+                <div className="absolute inset-0 z-20 bg-surface flex flex-col items-center justify-center text-center p-8">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -145,7 +145,7 @@ export default function ContactSection({ dict }) {
                     name="name"
                     placeholder={dict?.namePlaceholder || "Masukkan nama Anda"}
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/3 border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
                     required
                   />
                 </div>
@@ -165,7 +165,7 @@ export default function ContactSection({ dict }) {
                       dict?.emailPlaceholder || "Masukkan email Anda"
                     }
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/3 border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 disabled:opacity-50"
                     required
                   />
                 </div>
@@ -186,7 +186,7 @@ export default function ContactSection({ dict }) {
                       "Tuliskan pesan Anda di sini..."
                     }
                     disabled={status === "loading"}
-                    className="w-full px-5 py-4 bg-brand-text/[0.03] border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 resize-none disabled:opacity-50"
+                    className="w-full px-5 py-4 bg-brand-text/3 border border-brand-text/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple transition-all font-medium text-brand-text placeholder:text-brand-text/30 resize-none disabled:opacity-50"
                     required
                   ></textarea>
                 </div>

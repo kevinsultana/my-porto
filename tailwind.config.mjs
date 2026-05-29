@@ -1,24 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background: "#050816",
-        foreground: "#e2e8f0",
-        muted: "rgba(148, 163, 184, 0.78)",
-        surface: "rgba(15, 23, 42, 0.64)",
-        "surface-strong": "rgba(15, 23, 42, 0.84)",
-        "surface-border": "rgba(148, 163, 184, 0.16)",
+        background: "rgb(var(--brand-bg) / <alpha-value>)",
+        foreground: "rgb(var(--brand-text) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-strong": "rgb(var(--surface-strong) / <alpha-value>)",
+        "surface-border": "rgb(var(--surface-border) / <alpha-value>)",
         brand: {
-          bg: "#050816",
-          paper: "#fdfdfd",
-          text: "#e2e8f0",
-          ink: "#1e293b",
-          blue: "#3b82f6",
-          purple: "#8b5cf6",
-          pink: "#ec4899",
-          mint: "#10b981",
-          amber: "#f59e0b",
+          bg: "rgb(var(--brand-bg) / <alpha-value>)",
+          paper: "rgb(var(--brand-paper) / <alpha-value>)",
+          text: "rgb(var(--brand-text) / <alpha-value>)",
+          ink: "rgb(var(--brand-ink) / <alpha-value>)",
+          blue: "rgb(var(--brand-blue) / <alpha-value>)",
+          purple: "rgb(var(--brand-purple) / <alpha-value>)",
+          pink: "rgb(var(--brand-pink) / <alpha-value>)",
+          mint: "rgb(var(--brand-mint) / <alpha-value>)",
+          amber: "rgb(var(--brand-amber) / <alpha-value>)",
         },
       },
       fontFamily: {

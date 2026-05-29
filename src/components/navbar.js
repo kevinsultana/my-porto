@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Home, User, Briefcase, Folder, Mail, Globe } from "lucide-react";
+import ThemeToggle from "./theme-toggle";
 
 export default function Navbar({ locale = "en" }) {
   const [activeSection, setActiveSection] = useState("home");
@@ -96,7 +97,7 @@ export default function Navbar({ locale = "en" }) {
 
   return (
     <header className="fixed bottom-4 md:top-4 md:bottom-auto inset-x-0 z-50 flex justify-center px-4 transition-all duration-300">
-      <nav className="flex items-center gap-1 md:gap-2 bg-white/80 backdrop-blur-md border-2 border-brand-text/10 px-2 md:px-4 py-2 rounded-full shadow-lg">
+      <nav className="flex items-center gap-1 md:gap-2 bg-surface/85 backdrop-blur-md border border-surface-border px-2 md:px-4 py-2 rounded-full shadow-lg shadow-black/20">
         {/* Logo */}
         <a
           href="#home"
@@ -151,6 +152,8 @@ export default function Navbar({ locale = "en" }) {
           <Globe className="w-3.5 h-3.5 text-brand-text/70" />
           <span>{locale.toUpperCase()}</span>
         </button>
+
+        <ThemeToggle />
       </nav>
     </header>
   );

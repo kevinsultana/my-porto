@@ -16,10 +16,7 @@ const itemVariants = {
 
 export function ProjectsSection({ projects }) {
   return (
-    <section
-      id="projects"
-      className="mx-auto max-w-7xl scroll-mt-28 px-4 py-20 sm:px-6 md:scroll-mt-32 md:py-28 lg:px-8 lg:py-32"
-    >
+    <section id="projects" className="scroll-mt-28">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -28,11 +25,12 @@ export function ProjectsSection({ projects }) {
         className="space-y-8"
       >
         <motion.div variants={itemVariants} className="max-w-2xl">
-          <p className="section-kicker text-xs font-semibold text-cyan-200/70">
+          <p className="section-kicker text-xs font-semibold text-slate-500">
             Featured projects
           </p>
-          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-            A few standout systems framed as portfolio-ready case studies.
+          <h2 className="text-balance mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl">
+            A collection of projects I’ve built, ranging from user interfaces to
+            complex backend systems.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
             These showcase the kind of product thinking I apply across client
@@ -40,45 +38,63 @@ export function ProjectsSection({ projects }) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
               variants={itemVariants}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ duration: 0.24, ease: "easeOut" }}
-              className="hover-aurora-glow glass-card group relative w-full overflow-hidden rounded-4xl bg-white/[0.02] p-6 shadow-2xl sm:p-7"
+              className="hover-aurora-glow glass-card group relative w-full overflow-hidden rounded-[30px] bg-white/90 p-0"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.11),transparent_40%)] opacity-0 transition duration-300 group-hover:opacity-100" />
-              <div className="relative flex h-full flex-col">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-white/60 backdrop-blur-md">
-                    0{index + 1}
-                  </span>
-                  <ArrowUpRight className="h-5 w-5 text-cyan-300/70 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-cyan-200" />
-                </div>
+              <div
+                className={`relative min-h-60 overflow-hidden bg-linear-to-br ${project.accent}`}
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.14),transparent_42%)]" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-white/40" />
+                <div className="relative flex h-full min-h-60 flex-col justify-between p-5 sm:p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="rounded-full border border-white/20 bg-white/12 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-white/90 backdrop-blur-md">
+                      0{index + 1}
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 text-white/90 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </div>
 
-                <div className="mt-10 space-y-4">
+                  <div className="relative ml-auto flex w-full max-w-48 items-center justify-center rounded-[28px] border border-white/20 bg-white/12 px-5 py-7 text-center text-white shadow-[0_18px_40px_rgba(15,23,42,0.18)] backdrop-blur-md">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.26em] text-white/76">
+                        Feature
+                      </p>
+                      <p className="mt-2 text-base font-semibold leading-tight">
+                        {project.category}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative flex h-full flex-col p-6 sm:p-7">
+                <div className="space-y-4">
                   <div>
-                    <p className="text-sm font-medium uppercase tracking-[0.22em] text-cyan-200/60">
+                    <p className="text-xs font-medium uppercase tracking-[0.24em] text-slate-500">
                       {project.category}
                     </p>
-                    <h3 className="text-balance mt-3 text-2xl font-semibold leading-tight tracking-tight text-white">
+                    <h3 className="text-balance mt-3 text-2xl font-semibold leading-tight tracking-tight text-slate-950">
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-white/68 sm:text-base">
+                  <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {project.highlights.map((highlight) => (
+                <div className="mt-8 flex flex-wrap gap-2 border-t border-slate-200 pt-5">
+                  {project.tags.map((tag) => (
                     <span
-                      key={highlight}
-                      className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/72"
+                      key={tag}
+                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600"
                     >
-                      {highlight}
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -92,7 +108,7 @@ export function ProjectsSection({ projects }) {
             href="https://github.com/kevinsultana"
             target="_blank"
             rel="noreferrer"
-            className="glass-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1"
+            className="glass-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-slate-700 transition-all duration-300 ease-out hover:-translate-y-1 hover:text-slate-950"
           >
             <FaGithub className="h-4 w-4" />
             Explore all repos on GitHub

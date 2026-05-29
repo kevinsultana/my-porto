@@ -46,37 +46,36 @@ const techStack = [
 
 const projects = [
   {
-    title: "CRM System",
-    category: "Operations Platform",
+    title: "Operations Command Center",
+    category: "Internal Dashboard",
     description:
-      "A glassy internal CRM concept focused on sales tracking, workflow visibility, and team productivity.",
-    highlights: [
-      "Role-based dashboards",
-      "Lead pipeline management",
-      "Audit-ready activity logs",
-    ],
+      "A polished operations dashboard concept for tracking workflows, records, and daily team activity across multiple services.",
+    tags: ["Next.js", "React", "Role-based UI"],
+    accent: "from-sky-500 via-blue-600 to-indigo-900",
   },
   {
-    title: "E-commerce Architecture",
-    category: "Scalable Commerce",
-    description:
-      "A resilient e-commerce blueprint designed for fast browsing, durable checkout flows, and clean deployment boundaries.",
-    highlights: [
-      "Headless storefront",
-      "Checkout performance",
-      "Infrastructure automation",
-    ],
-  },
-  {
-    title: "Web Portfolio",
+    title: "Portfolio Experience System",
     category: "Personal Brand",
     description:
-      "A high-contrast portfolio system blending cinematic visuals, motion polish, and a strong technical narrative.",
-    highlights: [
-      "Glassmorphism UI",
-      "Scroll-driven motion",
-      "SEO-first metadata",
-    ],
+      "A storytelling portfolio structure with image-led sections, bold typography, and smooth motion that feels premium on every screen.",
+    tags: ["Framer Motion", "Tailwind CSS", "Design Systems"],
+    accent: "from-amber-400 via-orange-500 to-rose-600",
+  },
+  {
+    title: "Linux Server Toolkit",
+    category: "Infrastructure",
+    description:
+      "A lightweight admin surface for server management, service monitoring, and routine DevOps tasks across self-hosted environments.",
+    tags: ["Linux", "Automation", "Observability"],
+    accent: "from-emerald-400 via-teal-500 to-cyan-600",
+  },
+  {
+    title: "Next.js Commerce Shell",
+    category: "Scalable Frontend",
+    description:
+      "A modular storefront shell built for fast page transitions, strong content hierarchy, and easy integration with modern backend services.",
+    tags: ["App Router", "SEO", "Performance"],
+    accent: "from-violet-500 via-blue-600 to-slate-900",
   },
 ];
 
@@ -89,15 +88,27 @@ const socialLinks = {
 
 export default function Home() {
   return (
-    <main className="aurora-shell relative isolate overflow-hidden bg-[#0a0a0a] text-white">
+    <main className="portfolio-shell relative isolate overflow-hidden bg-background text-foreground selection:bg-blue-500/20 selection:text-slate-950">
       <Navbar />
-      <div className="pointer-events-none absolute inset-0 -z-20 aurora-grid tech-grid" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 subtle-grid" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(245,158,11,0.08),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(15,23,42,0.06),transparent_28%)]" />
 
-      <HeroSection />
-      <AboutSection techStack={techStack} />
-      <ProjectsSection projects={projects} />
-      <ContactSection socialLinks={socialLinks} />
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+        <HeroSection
+          socialLinks={socialLinks}
+          heroStats={[
+            { label: "Next.js ecosystem", value: "App Router" },
+            { label: "DevOps & Linux", value: "Infrastructure" },
+            { label: "Full-stack delivery", value: "End to end" },
+          ]}
+        />
+        <AboutSection techStack={techStack} />
+        <ProjectsSection projects={projects} />
+        <ContactSection
+          socialLinks={socialLinks}
+          location="Bekasi, Indonesia"
+        />
+      </div>
     </main>
   );
 }

@@ -12,31 +12,83 @@ const topRowSkills = [
     img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
   },
   {
-    name: "Express.js",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+    name: "ViteJS",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+  },
+  {
+    name: "HTML5",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+  },
+  {
+    name: "React Native",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  },
+  {
+    name: "Expo",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg",
+  },
+  {
+    name: "Flutter",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+  },
+  {
+    name: "TypeScript",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
   },
   {
     name: "Tailwind CSS",
     img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
+  {
+    name: "Github",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
+  },
 ];
 
 const bottomRowSkills = [
   {
-    name: "Linux",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
+    name: "Express.js",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
   },
   {
-    name: "Proxmox",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/debian/debian-original.svg",
+    name: "Cloudflare",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg",
   },
   {
-    name: "DevOps",
+    name: "Docker",
     img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
   },
   {
-    name: "Self-hosting",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
+    name: "Firebase",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
+  },
+  {
+    name: "Mongodb",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "PostgreSQL",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+  },
+  {
+    name: "Homelab Server",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-plain.svg",
+  },
+  {
+    name: "Linux OS",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
+  },
+  {
+    name: "n8n Automation",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "Ollama / AI",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  },
+  {
+    name: "Swagger API",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg",
   },
 ];
 
@@ -44,17 +96,17 @@ export default function Skills({ dict }) {
   // Array digandakan agar animasi scrolling tidak pernah putus (seamless loop)
   const multipliedTop = [
     ...topRowSkills,
-    ...topRowSkills,
-    ...topRowSkills,
-    ...topRowSkills,
-    ...topRowSkills,
+    // ...topRowSkills,
+    // ...topRowSkills,
+    // ...topRowSkills,
+    // ...topRowSkills,
   ];
   const multipliedBottom = [
     ...bottomRowSkills,
-    ...bottomRowSkills,
-    ...bottomRowSkills,
-    ...bottomRowSkills,
-    ...bottomRowSkills,
+    // ...bottomRowSkills,
+    // ...bottomRowSkills,
+    // ...bottomRowSkills,
+    // ...bottomRowSkills,
   ];
 
   return (
@@ -111,10 +163,10 @@ export default function Skills({ dict }) {
           100% { transform: translateX(0); }
         }
         .animate-scroll {
-          animation: scroll 40s linear infinite;
+          animation: scroll 50s linear infinite;
         }
         .animate-scroll-reverse {
-          animation: scroll-reverse 40s linear infinite;
+          animation: scroll-reverse 50s linear infinite;
         }
         .pause-on-hover:hover {
           animation-play-state: paused;

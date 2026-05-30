@@ -202,7 +202,7 @@ export default function ContactSection({ dict }) {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full inline-flex justify-center items-center gap-2 px-8 py-4 bg-brand-text text-white font-black rounded-2xl shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-brand-text cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full inline-flex justify-center items-center gap-2 px-8 py-4 bg-brand-ink text-brand-paper font-black rounded-2xl shadow-md hover:bg-brand-purple hover:text-white hover:shadow-lg hover:-translate-y-1 transition-all duration-500 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-brand-ink cursor-pointer disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
                     <>

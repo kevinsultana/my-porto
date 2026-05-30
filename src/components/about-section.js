@@ -62,7 +62,7 @@ export default function AboutSection({ dict }) {
             <a
               href="/CV-KevinSultanaHerman.pdf"
               download="CV-KevinSultanaHerman.pdf"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-text text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-ink text-brand-paper hover:text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <Download className="w-5 h-5" />{" "}
               {dict?.downloadCv || "Download CV"}

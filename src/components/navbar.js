@@ -28,7 +28,15 @@ export default function Navbar({ locale = "en" }) {
       threshold: 0.1,
     });
 
-    const sections = ["home", "about", "experience", "projects", "contact"];
+    const sections = [
+      "home",
+      "projects",
+      "skills",
+      "certificates",
+      "experience",
+      "about",
+      "contact",
+    ];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -66,11 +74,11 @@ export default function Navbar({ locale = "en" }) {
       color: "bg-brand-blue",
     },
     {
-      id: "about",
-      name: locale === "id" ? "Tentang" : "About",
-      path: "#about",
-      icon: User,
-      color: "bg-brand-pink",
+      id: "projects",
+      name: locale === "id" ? "Proyek" : "Projects",
+      path: "#projects",
+      icon: Folder,
+      color: "bg-brand-amber",
     },
     {
       id: "experience",
@@ -80,11 +88,11 @@ export default function Navbar({ locale = "en" }) {
       color: "bg-brand-purple",
     },
     {
-      id: "projects",
-      name: locale === "id" ? "Proyek" : "Projects",
-      path: "#projects",
-      icon: Folder,
-      color: "bg-brand-amber",
+      id: "about",
+      name: locale === "id" ? "Tentang" : "About",
+      path: "#about",
+      icon: User,
+      color: "bg-brand-pink",
     },
     {
       id: "contact",

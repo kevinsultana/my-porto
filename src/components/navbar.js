@@ -123,10 +123,21 @@ export default function Navbar({ locale = "en", dict = {} }) {
           const Icon = item.icon;
 
           return (
-            <a
+            <motion.a
               key={item.id}
               href={item.path}
               onClick={() => handleNavLinkClick(item.id)}
+              layout
+              animate={{
+                y: isActive ? -0.5 : 0,
+                scale: isActive ? 1.03 : 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 220,
+                damping: 24,
+                mass: 0.7,
+              }}
               className="relative px-2 sm:px-3 md:px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1.5 transition-colors text-brand-text shrink-0"
               title={item.name}
             >
@@ -134,19 +145,24 @@ export default function Navbar({ locale = "en", dict = {} }) {
                 <motion.span
                   layoutId="activeNav"
                   className={`absolute inset-0 rounded-full ${item.color} -z-10`}
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 180,
+                    damping: 22,
+                    mass: 0.9,
+                  }}
                 />
               )}
               <Icon
-                className={`w-4 h-4 md:w-4 md:h-4 ${isActive ? (item.id === "contact" ? "text-white" : "text-white") : "text-brand-text"}`}
+                className={`w-4 h-4 md:w-4 md:h-4 transition-colors duration-300 ${isActive ? "text-white" : "text-brand-text"}`}
               />
 
               <span
-                className={`hidden lg:block ${isActive ? "text-white" : "hover:text-brand-purple transition-colors"}`}
+                className={`hidden lg:block transition-colors duration-300 ${isActive ? "text-white" : "hover:text-brand-purple"}`}
               >
                 {item.name}
               </span>
-            </a>
+            </motion.a>
           );
         })}
 

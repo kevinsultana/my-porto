@@ -5,20 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Data sertifikat: disesuaikan dengan file di `public/certificate/`
 const certificates = [
+  { id: 7, alt: "Hactiv8", img: "/certificate/Hacktiv8.png" },
+  { id: 6, alt: "Udemy React Native", img: "/certificate/UdemyRN.png" },
+  { id: 5, alt: "Hour Of Code", img: "/certificate/HourOfCode.png" },
   { id: 1, alt: "HackerRank CSS", img: "/certificate/hackerRankCSS.png" },
-  {
-    id: 2,
-    alt: "HackerRank Front-End (FER)",
-    img: "/certificate/hackerRankFER.png",
-  },
+  // {
+  //   id: 2,
+  //   alt: "HackerRank Front-End (FER)",
+  //   img: "/certificate/hackerRankFER.png",
+  // },
   {
     id: 3,
     alt: "HackerRank Problem Solving",
     img: "/certificate/HackerRankPS.png",
   },
   { id: 4, alt: "HackerRank React", img: "/certificate/HackerRankReact.png" },
-  { id: 5, alt: "Hour Of Code", img: "/certificate/HourOfCode.png" },
-  { id: 6, alt: "Udemy React Native", img: "/certificate/UdemyRN.png" },
 ];
 
 export default function Certificates({ dict }) {

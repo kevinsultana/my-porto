@@ -16,13 +16,13 @@ export default function HeroSection({ dict }) {
 
   return (
     <section id="home" className="py-12 md:py-20 scroll-mt-28">
-      <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* Kolom Kiri */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex-1 space-y-6 text-left"
+          className="order-2 md:order-1 flex-1 w-full space-y-6 text-left"
         >
           <p className="text-sm font-bold uppercase tracking-widest text-brand-text/60">
             {dict?.greeting || "HELLO, I Am"}
@@ -119,10 +119,10 @@ export default function HeroSection({ dict }) {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex-1 flex justify-center md:justify-end"
+          className="order-1 md:order-2 flex-1 w-full flex justify-center md:justify-end"
         >
           <div
-            className="relative w-full max-w-sm perspective-1000"
+            className="relative w-full max-w-104 sm:max-w-sm perspective-1000"
             onMouseMove={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
               x.set(e.clientX - (rect.left + rect.width / 2));
@@ -137,7 +137,7 @@ export default function HeroSection({ dict }) {
             <div className="absolute -inset-1 bg-linear-to-tr from-brand-blue to-brand-purple rounded-[34px] blur-md opacity-40 -z-10 group-hover:opacity-60 transition-opacity" />
 
             <motion.div
-              className="relative aspect-3/4 w-full max-w-sm rounded-4xl overflow-hidden shadow-2xl border border-white/20"
+              className="relative w-full aspect-3/4 rounded-4xl overflow-hidden shadow-2xl border border-white/20"
               style={{ rotateX, rotateY }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
@@ -145,10 +145,11 @@ export default function HeroSection({ dict }) {
               <Image
                 src="/images/Hero.png"
                 alt="Kevin Sultana Herman"
-                fill
+                width={960}
+                height={1280}
                 priority
                 sizes="(max-width: 768px) 88vw, 420px"
-                className="object-cover object-bottom drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
+                className="w-full h-full object-cover object-bottom drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
               />
 
               {/* Gradient Overlay */}

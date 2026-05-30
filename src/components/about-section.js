@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutSection({ dict }) {
   return (
@@ -20,10 +21,12 @@ export default function AboutSection({ dict }) {
 
           {/* Frame Foto Utama */}
           <div className="relative aspect-4/5 overflow-hidden rounded-4xl border border-brand-text/5 bg-white shadow-xl z-10">
-            <img
+            <Image
               src="/images/About.jpg"
               alt="Profil Kevin Sultana"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              fill
+              sizes="(max-width: 768px) 80vw, 380px"
+              className="object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
         </motion.div>

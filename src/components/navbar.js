@@ -62,7 +62,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
 
     timeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
-    }, 1000);
+    }, 2000);
   };
 
   const menuItems = [
@@ -133,7 +133,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
                 scale: isActive ? 1.03 : 1,
               }}
               transition={{
-                type: "spring",
+                type: "decay",
                 stiffness: 220,
                 damping: 24,
                 mass: 0.7,

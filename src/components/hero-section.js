@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Briefcase, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection({ dict }) {
   const x = useMotionValue(0);
@@ -141,10 +142,13 @@ export default function HeroSection({ dict }) {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {/* Gambar Utama */}
-              <img
+              <Image
                 src="/images/Hero.png"
                 alt="Kevin Sultana Herman"
-                className="w-full h-full object-cover object-bottom drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
+                fill
+                priority
+                sizes="(max-width: 768px) 88vw, 420px"
+                className="object-cover object-bottom drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
               />
 
               {/* Gradient Overlay */}
@@ -164,9 +168,12 @@ export default function HeroSection({ dict }) {
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-md border border-white/10">
                 <div className="flex items-center gap-3">
                   {/* Avatar Mini */}
-                  <img
+                  <Image
                     src="/images/Hero2.png"
                     alt="Foto Profil kevinsultana"
+                    width={40}
+                    height={40}
+                    sizes="40px"
                     className="w-10 h-10 rounded-full border border-white/20 object-cover"
                   />
                   <div>

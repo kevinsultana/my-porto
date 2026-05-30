@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Home, User, Briefcase, Folder, Mail, Globe } from "lucide-react";
 import ThemeToggle from "./theme-toggle";
 
-export default function Navbar({ locale = "en" }) {
+export default function Navbar({ locale = "en", dict = {} }) {
   const [activeSection, setActiveSection] = useState("home");
 
   const isClickScrolling = useRef(false);
@@ -68,35 +68,35 @@ export default function Navbar({ locale = "en" }) {
   const menuItems = [
     {
       id: "home",
-      name: locale === "id" ? "Beranda" : "Home",
+      name: dict.home || (locale === "id" ? "Beranda" : "Home"),
       path: "#home",
       icon: Home,
       color: "bg-brand-blue",
     },
     {
       id: "projects",
-      name: locale === "id" ? "Proyek" : "Projects",
+      name: dict.projects || (locale === "id" ? "Proyek" : "Projects"),
       path: "#projects",
       icon: Folder,
       color: "bg-brand-amber",
     },
     {
       id: "experience",
-      name: locale === "id" ? "Pengalaman" : "Experience",
+      name: dict.experience || (locale === "id" ? "Pengalaman" : "Experience"),
       path: "#experience",
       icon: Briefcase,
       color: "bg-brand-purple",
     },
     {
       id: "about",
-      name: locale === "id" ? "Tentang" : "About",
+      name: dict.about || (locale === "id" ? "Tentang" : "About"),
       path: "#about",
       icon: User,
       color: "bg-brand-pink",
     },
     {
       id: "contact",
-      name: locale === "id" ? "Kontak" : "Contact",
+      name: dict.contact || (locale === "id" ? "Kontak" : "Contact"),
       path: "#contact",
       icon: Mail,
       color: "bg-brand-text",
@@ -158,7 +158,7 @@ export default function Navbar({ locale = "en" }) {
           className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 border border-brand-text/10 rounded-full text-xs font-black bg-brand-text/5 hover:bg-brand-text/10 text-brand-text transition-all active:scale-95"
         >
           <Globe className="w-3.5 h-3.5 text-brand-text/70" />
-          <span>{locale.toUpperCase()}</span>
+          <span>{dict.language || locale.toUpperCase()}</span>
         </button>
 
         <ThemeToggle />

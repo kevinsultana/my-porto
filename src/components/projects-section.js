@@ -108,21 +108,25 @@ function ProjectCard({ project, index }) {
   );
 }
 
-export default function ProjectsSection({ projects = [] }) {
+export default function ProjectsSection({ projects = [], dict }) {
   return (
     <section id="projects" className="relative py-10 sm:py-14">
       <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-amber">
-            Selected Work
+            {dict?.eyebrow || "Selected Work"}
           </p>
           <h3 className="mt-2 text-3xl font-black text-brand-text sm:text-4xl">
-            Projects that are visible at a glance
+            {dict?.title || "Projects"}{" "}
+            <span className="text-brand-pink">
+              {dict?.accent || "Selected"}
+            </span>
+            .
           </h3>
         </div>
         <p className="max-w-xl text-sm font-medium leading-relaxed text-brand-ink/65 sm:text-right">
-          Every project card is rendered in a responsive grid, so nothing gets
-          hidden behind a single placeholder card.
+          {dict?.subtitle ||
+            "Every project card is rendered in a responsive grid, so nothing gets hidden behind a single placeholder card."}
         </p>
       </div>
 

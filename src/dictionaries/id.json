@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "name": "Kevin Sultana Herman",
+    "role": "Senior Software Programmer & Full-stack Developer",
+    "location": "Cibubur, Indonesia"
+  },
+  "navbar": {
+    "home": "Beranda",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "certificates": "Sertifikat",
+    "experience": "Pengalaman",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "language": "ID"
+  },
+  "hero": {
+    "greeting": "HALO, SAYA",
+    "role": "Senior Software Programmer & Full-stack Developer",
+    "tagline": "Membangun aplikasi web modern dengan Next.js, React, Express.js, dan infrastruktur Linux yang stabil untuk pengalaman pengguna yang cepat, rapi, dan siap dipakai di produksi.",
+    "ctaProjects": "Lihat Proyek",
+    "ctaContact": "Hubungi Saya",
+    "stats": [
+      {
+        "label": "Ekosistem Next.js",
+        "value": "App Router"
+      },
+      {
+        "label": "DevOps & Linux",
+        "value": "Infrastruktur"
+      },
+      {
+        "label": "Delivery full-stack",
+        "value": "End to end"
+      }
+    ]
+  },
+  "about": {
+    "greeting": "Halo, saya",
+    "name": "Kevin Sultana Herman",
+    "role": "Senior Software Programmer & Full-stack Developer",
+    "bio": "Saya membangun produk web end-to-end dengan fokus pada performa, arsitektur yang bersih, dan pengalaman pengguna yang jelas. Pengalaman saya mencakup Reachable Goods untuk e-commerce dengan integrasi Midtrans, Yayasan Program Nutrisi untuk sistem manajemen operasional, serta proyek freelance untuk CRM travel dan website konstruksi di Amerika Serikat.",
+    "downloadCv": "Unduh CV"
+  },
+  "skills": {
+    "title": "Tech",
+    "accent": "Stack",
+    "subtitle": "Next.js, React, Express.js, Tailwind CSS, Linux, Proxmox, DevOps, dan self-hosting"
+  },
+  "certificates": {
+    "title": "Sertifikat",
+    "accent": "Keahlian",
+    "subtitle": "Kumpulan sertifikat yang mendukung praktik pengembangan web, UI/UX, dan frontend modern"
+  },
+  "experience": {
+    "title": "Pengalaman",
+    "accent": "Kerja",
+    "technologiesLabel": "Teknologi yang digunakan:",
+    "list": [
+      {
+        "company": "Reachable Goods",
+        "role": "Founder & Full-stack Developer",
+        "period": "2025 - Sekarang",
+        "location": "Cibubur, Indonesia",
+        "description": [
+          "Membangun platform e-commerce dari nol dengan fitur manajemen inventaris dan perhitungan pengiriman flat-rate.",
+          "Melakukan integrasi payment gateway menggunakan Midtrans untuk transaksi yang aman dan terotomatisasi.",
+          "Mengelola infrastruktur deployment dan administrasi server secara mandiri."
+        ],
+        "technologies": ["Next.js", "Express.js", "Midtrans", "Linux"]
+      },
+      {
+        "company": "Yayasan Program Nutrisi",
+        "role": "Senior Software Developer",
+        "period": "2026 - Sekarang",
+        "location": "Payakumbuh, Indonesia",
+        "description": [
+          "Merancang dan mengembangkan aplikasi manajemen terpadu untuk operasional yayasan.",
+          "Membangun fitur pelacakan pengiriman makanan sekolah secara real-time.",
+          "Mengimplementasikan sistem absensi dan pelacakan kehadiran staf yang akurat."
+        ],
+        "technologies": ["Next.js", "React", "Node.js", "PostgreSQL"]
+      },
+      {
+        "company": "Freelance (Travel CRM & US Construction)",
+        "role": "Full-stack Developer",
+        "period": "2025 - 2026",
+        "location": "Remote",
+        "description": [
+          "Mengembangkan CRM travel dengan dashboard khusus untuk hak akses Agent dan Admin.",
+          "Merancang demo interaktif dan website portofolio berkinerja tinggi untuk perusahaan konstruksi berbasis di Amerika Serikat."
+        ],
+        "technologies": ["Next.js", "Supabase", "Tailwind CSS", "React"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyek",
+    "accent": "Pilihan",
+    "subtitle": "Beberapa proyek yang menonjolkan pengalaman saya dalam dashboard, infrastruktur, dan aplikasi web modern"
+  },
+  "contact": {
+    "title": "Mari Berdiskusi",
+    "accent": "Bersama",
+    "subtitle": "Tertarik untuk berkolaborasi atau ingin berdiskusi tentang pengembangan web, sistem manajemen, atau infrastruktur server? Silakan hubungi saya.",
+    "name": "Nama Lengkap",
+    "namePlaceholder": "Masukkan nama Anda",
+    "email": "Email",
+    "emailPlaceholder": "Masukkan email Anda",
+    "message": "Pesan",
+    "messagePlaceholder": "Tuliskan pesan Anda di sini...",
+    "send": "Kirim Pesan",
+    "successTitle": "Pesan Terkirim!",
+    "successMessage": "Terima kasih telah menghubungi. Saya akan segera membalas pesan Anda.",
+    "errorMessage": "Gagal mengirim pesan. Silakan coba lagi nanti.",
+    "contactInfo": {
+      "emailLabel": "Email",
+      "locationLabel": "Lokasi",
+      "emailValue": "kevinsultanaherman@gmail.com",
+      "locationValue": "Cibubur, Indonesia"
+    }
+  }
+}

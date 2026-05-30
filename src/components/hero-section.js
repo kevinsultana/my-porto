@@ -142,9 +142,9 @@ export default function HeroSection({ dict }) {
             >
               {/* Gambar Utama */}
               <img
-                src="/images/hero.webp"
+                src="/images/hero.png"
                 alt="Kevin Sultana Herman"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-bottom drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
               />
 
               {/* Gradient Overlay */}
@@ -165,7 +165,7 @@ export default function HeroSection({ dict }) {
                 <div className="flex items-center gap-3">
                   {/* Avatar Mini */}
                   <img
-                    src="/images/hero2.webp"
+                    src="/images/hero2.png"
                     alt="Foto Profil kevinsultana"
                     className="w-10 h-10 rounded-full border border-white/20 object-cover"
                   />

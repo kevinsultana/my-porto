@@ -21,7 +21,7 @@ export default function AboutSection({ dict }) {
           {/* Frame Foto Utama */}
           <div className="relative aspect-4/5 overflow-hidden rounded-4xl border border-brand-text/5 bg-white shadow-xl z-10">
             <img
-              src="/images/about.jpg"
+              src="/images/About.jpg"
               alt="Profil Kevin Sultana"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />

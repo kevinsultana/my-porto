@@ -53,44 +53,40 @@
     "subtitle": "A collection of certificates supporting web development, UI/UX, and modern frontend practice"
   },
   "experience": {
-    "title": "Experience",
-    "accent": "Work",
+    "title": "Work",
+    "accent": "Experience",
     "technologiesLabel": "Technologies used:",
     "list": [
       {
-        "company": "Reachable Goods",
-        "role": "Founder & Full-stack Developer",
-        "period": "2025 - Present",
-        "location": "Cibubur, Indonesia",
-        "description": [
-          "Built an e-commerce platform from scratch with inventory management and flat-rate shipping calculations.",
-          "Integrated Midtrans payment gateway for secure and automated transactions.",
-          "Managed deployment infrastructure and server administration independently."
-        ],
-        "technologies": ["Next.js", "Express.js", "Midtrans", "Linux"]
-      },
-      {
-        "company": "Nutritional Program Foundation",
-        "role": "Senior Software Developer",
-        "period": "2026 - Present",
-        "location": "Payakumbuh, Indonesia",
-        "description": [
-          "Designed and developed an integrated management application for foundation operations.",
-          "Built real-time school meal delivery tracking features.",
-          "Implemented accurate attendance and staff presence tracking systems."
-        ],
-        "technologies": ["Next.js", "React", "Node.js", "PostgreSQL"]
-      },
-      {
-        "company": "Freelance (Travel CRM & US Construction)",
-        "role": "Full-stack Developer",
-        "period": "2025 - 2026",
+        "company": "PT Unotek Dimensi Mandiri",
+        "role": "Software Engineer",
+        "period": "Jul 2025 - Present",
         "location": "Remote",
         "description": [
-          "Developed a travel CRM with role-based dashboards for Agent and Admin access.",
-          "Designed interactive demos and high-performance portfolio websites for a US-based construction company."
+          "Developing, maintaining, and optimizing production-scale software applications."
         ],
-        "technologies": ["Next.js", "Supabase", "Tailwind CSS", "React"]
+        "technologies": ["React.js", "Next.js"]
+      },
+      {
+        "company": "PT Unotek Dimensi Mandiri",
+        "role": "Mobile Application Developer (Contract)",
+        "period": "Oct 2024 - Jul 2025",
+        "location": "Indonesia",
+        "description": [
+          "Developed high-performance mobile applications using React Native for both Android and iOS platforms."
+        ],
+        "technologies": ["React Native", "Mobile Development"]
+      },
+      {
+        "company": "Dian Cahaya Travel",
+        "role": "Web Developer (Freelance)",
+        "period": "Dec 2024 - May 2025",
+        "location": "Jakarta, Indonesia (Remote)",
+        "description": [
+          "Created responsive travel websites with booking features using React, Tailwind CSS, and third-party APIs.",
+          "Optimized page loading speed and SEO performance for better visibility."
+        ],
+        "technologies": ["React.js", "Tailwind CSS"]
       }
     ]
   },

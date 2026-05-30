@@ -5,21 +5,21 @@ import { Download } from "lucide-react";
 
 export default function AboutSection({ dict }) {
   return (
-    <section id="about" className="scroll-mt-14 py-8 md:py-12">
-      <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 max-w-5xl mx-auto px-6">
+    <section id="about" className="scroll-mt-14 py-12 md:py-16">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] md:gap-14 lg:gap-16">
         {/* KOLOM KIRI: Foto Bersih & Elegan (Tanpa Blur/Glow Berat) */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative w-full max-w-xs md:max-w-sm shrink-0"
+          className="relative mx-auto w-full max-w-70 sm:max-w-sm md:max-w-none md:mx-0"
         >
           {/* Aksen Background Solid yang Lembut (Sangat ringan diproses) */}
-          <div className="absolute inset-0 bg-brand-amber/15 rounded-4xl transform translate-x-4 translate-y-4 -rotate-3" />
+          <div className="absolute inset-0 rounded-4xl bg-brand-amber/15 translate-x-3 translate-y-3 -rotate-3 sm:translate-x-4 sm:translate-y-4" />
 
           {/* Frame Foto Utama */}
-          <div className="relative aspect-4/5 bg-white rounded-4xl shadow-xl border border-brand-text/5 overflow-hidden z-10">
+          <div className="relative aspect-4/5 overflow-hidden rounded-4xl border border-brand-text/5 bg-white shadow-xl z-10">
             <img
               src="/images/about.jpg"
               alt="Profil Kevin Sultana"
@@ -34,35 +34,36 @@ export default function AboutSection({ dict }) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex-1 space-y-6"
+          className="min-w-0 space-y-5 text-center md:text-left md:space-y-6"
         >
           {/* Sapaan dengan Aksen Solid Color (Tidak norak) */}
-          <h3 className="text-3xl md:text-4xl font-black leading-snug text-brand-text uppercase">
-            {dict?.greeting || "Halo, saya"} {/* Pil Nama: Solid Biru */}
-            <span className="bg-brand-blue text-white px-3 py-1 rounded-xl whitespace-nowrap inline-block -rotate-1 shadow-sm">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-brand-text uppercase">
+            <span className="block">{dict?.greeting || "Halo, saya"}</span>
+            {/* Pil Nama: Solid Biru */}
+            <span className="mt-2 inline-block rounded-xl bg-brand-blue px-3 py-1 text-white shadow-sm">
               {dict?.name || "Kevin Sultana Herman"}
             </span>
             , <br className="hidden md:block" />
             {/* Pil Role: Solid Mint */}
-            <span className="bg-brand-mint text-brand-text px-3 py-1 mt-3 inline-block rounded-xl whitespace-nowrap rotate-1 shadow-sm">
+            <span className="mt-3 inline-block rounded-xl bg-brand-mint px-3 py-1 text-brand-text shadow-sm">
               {dict?.role || "Full-stack Developer & DevOps"}
             </span>
           </h3>
 
           {/* Bio Rapi dengan Garis Samping Solid */}
-          <div className="border-l-4 border-brand-purple pl-6 py-2 my-6">
-            <p className="text-lg whitespace-pre-line text-brand-text/70 font-medium leading-relaxed">
+          <div className="my-4 border-l-4 border-brand-purple pl-4 sm:pl-6 py-1 sm:py-2 text-left md:my-6">
+            <p className="text-base sm:text-lg whitespace-pre-line text-brand-text/70 font-medium leading-relaxed">
               {dict?.bio ||
                 "Berpengalaman membangun arsitektur web modern menggunakan Next.js, React, dan Express.js. Saya memiliki minat mendalam dalam manajemen infrastruktur, Linux server, dan mengoptimalkan lingkungan deployment untuk skalabilitas tinggi."}
             </p>
           </div>
 
           {/* Tombol Clean & Modern */}
-          <div className="pt-2">
+          <div className="pt-1 md:pt-2 flex justify-center md:justify-start">
             <a
               href="/CV-KevinSultanaHerman.pdf"
               download="CV-KevinSultanaHerman.pdf"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-ink text-brand-paper hover:text-white font-black rounded-full shadow-md hover:bg-brand-purple hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex w-full justify-center items-center gap-2 rounded-full bg-brand-ink px-6 py-3.5 font-black text-brand-paper shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-brand-purple hover:text-white hover:shadow-lg sm:w-auto sm:px-8"
             >
               <Download className="w-5 h-5" />{" "}
               {dict?.downloadCv || "Download CV"}

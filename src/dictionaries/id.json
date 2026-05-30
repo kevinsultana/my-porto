@@ -58,39 +58,35 @@
     "technologiesLabel": "Teknologi yang digunakan:",
     "list": [
       {
-        "company": "Reachable Goods",
-        "role": "Founder & Full-stack Developer",
-        "period": "2025 - Sekarang",
-        "location": "Cibubur, Indonesia",
-        "description": [
-          "Membangun platform e-commerce dari nol dengan fitur manajemen inventaris dan perhitungan pengiriman flat-rate.",
-          "Melakukan integrasi payment gateway menggunakan Midtrans untuk transaksi yang aman dan terotomatisasi.",
-          "Mengelola infrastruktur deployment dan administrasi server secara mandiri."
-        ],
-        "technologies": ["Next.js", "Express.js", "Midtrans", "Linux"]
-      },
-      {
-        "company": "Yayasan Program Nutrisi",
-        "role": "Senior Software Developer",
-        "period": "2026 - Sekarang",
-        "location": "Payakumbuh, Indonesia",
-        "description": [
-          "Merancang dan mengembangkan aplikasi manajemen terpadu untuk operasional yayasan.",
-          "Membangun fitur pelacakan pengiriman makanan sekolah secara real-time.",
-          "Mengimplementasikan sistem absensi dan pelacakan kehadiran staf yang akurat."
-        ],
-        "technologies": ["Next.js", "React", "Node.js", "PostgreSQL"]
-      },
-      {
-        "company": "Freelance (Travel CRM & US Construction)",
-        "role": "Full-stack Developer",
-        "period": "2025 - 2026",
+        "company": "PT Unotek Dimensi Mandiri",
+        "role": "Software Engineer",
+        "period": "Jul 2025 - Sekarang",
         "location": "Remote",
         "description": [
-          "Mengembangkan CRM travel dengan dashboard khusus untuk hak akses Agent dan Admin.",
-          "Merancang demo interaktif dan website portofolio berkinerja tinggi untuk perusahaan konstruksi berbasis di Amerika Serikat."
+          "Mengembangkan, memelihara, dan mengoptimalkan performa aplikasi perangkat lunak skala produksi."
         ],
-        "technologies": ["Next.js", "Supabase", "Tailwind CSS", "React"]
+        "technologies": ["React.js", "Next.js"]
+      },
+      {
+        "company": "PT Unotek Dimensi Mandiri",
+        "role": "Mobile Application Developer (Contract)",
+        "period": "Okt 2024 - Jul 2025",
+        "location": "Indonesia",
+        "description": [
+          "Mengembangkan aplikasi mobile berkinerja tinggi menggunakan React Native untuk platform Android dan iOS."
+        ],
+        "technologies": ["React Native", "Mobile Development"]
+      },
+      {
+        "company": "Dian Cahaya Travel",
+        "role": "Web Developer (Freelance)",
+        "period": "Des 2024 - Mei 2025",
+        "location": "Jakarta, Indonesia (Remote)",
+        "description": [
+          "Membuat website travel yang responsif dengan fitur pemesanan menggunakan React, Tailwind CSS, dan API pihak ketiga.",
+          "Mengoptimalkan kecepatan pemuatan halaman dan kinerja SEO untuk meningkatkan visibilitas mesin pencari."
+        ],
+        "technologies": ["React.js", "Tailwind CSS"]
       }
     ]
   },

@@ -99,23 +99,23 @@ export default function Navbar({ locale = "en", dict = {} }) {
       name: dict.contact || (locale === "id" ? "Kontak" : "Contact"),
       path: "#contact",
       icon: Mail,
-      color: "bg-brand-text",
+      color: "bg-brand-mint",
     },
   ];
 
   return (
-    <header className="fixed bottom-4 md:top-4 md:bottom-auto inset-x-0 z-50 flex justify-center px-4 transition-all duration-300">
-      <nav className="flex items-center gap-1 md:gap-2 bg-surface/85 backdrop-blur-md border border-surface-border px-2 md:px-4 py-2 rounded-full shadow-lg shadow-black/20">
+    <header className="fixed bottom-3 md:top-4 md:bottom-auto inset-x-0 z-50 flex justify-center px-2 sm:px-4 transition-all duration-300">
+      <nav className="flex max-w-[calc(100vw-0.75rem)] items-center gap-0.5 sm:gap-1 md:gap-2 bg-surface/85 backdrop-blur-md border border-surface-border px-1.5 sm:px-2 md:px-4 py-1.5 rounded-full shadow-lg shadow-black/20 overflow-hidden">
         {/* Logo */}
         <a
           href="#home"
           onClick={() => handleNavLinkClick("home")}
-          className="font-black text-lg md:text-xl tracking-tighter px-2 text-brand-text hover:scale-105 transition-transform"
+          className="font-black text-base sm:text-lg md:text-xl tracking-tighter px-1.5 sm:px-2 text-brand-text hover:scale-105 transition-transform shrink-0"
         >
           KS<span className="text-brand-pink">.</span>
         </a>
 
-        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-1" />
+        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-0.5 sm:mx-1 shrink-0" />
 
         {/* Menu Navigasi */}
         {menuItems.map((item) => {
@@ -127,7 +127,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
               key={item.id}
               href={item.path}
               onClick={() => handleNavLinkClick(item.id)}
-              className="relative px-3 md:px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-colors text-brand-text"
+              className="relative px-2 sm:px-3 md:px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1.5 transition-colors text-brand-text shrink-0"
               title={item.name}
             >
               {isActive && (
@@ -138,7 +138,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
                 />
               )}
               <Icon
-                className={`w-4 h-4 md:w-4 md:h-4 ${isActive ? "text-white" : "text-brand-text"}`}
+                className={`w-4 h-4 md:w-4 md:h-4 ${isActive ? (item.id === "contact" ? "text-white" : "text-white") : "text-brand-text"}`}
               />
 
               <span
@@ -150,15 +150,18 @@ export default function Navbar({ locale = "en", dict = {} }) {
           );
         })}
 
-        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-1" />
+        <div className="h-5 md:h-6 w-px bg-brand-text/10 mx-0.5 sm:mx-1 shrink-0" />
 
         {/* Language Switcher */}
         <button
           onClick={handleLanguageToggle}
-          className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 border border-brand-text/10 rounded-full text-xs font-black bg-brand-text/5 hover:bg-brand-text/10 text-brand-text transition-all active:scale-95"
+          className="flex items-center gap-1 px-2 sm:px-3 py-1.5 border border-brand-text/10 rounded-full text-xs font-black bg-brand-text/5 hover:bg-brand-text/10 text-brand-text transition-all active:scale-95 shrink-0"
         >
           <Globe className="w-3.5 h-3.5 text-brand-text/70" />
-          <span>{dict.language || locale.toUpperCase()}</span>
+          <span className="hidden sm:inline">
+            {dict.language || locale.toUpperCase()}
+          </span>
+          <span className="sm:hidden">{locale.toUpperCase()}</span>
         </button>
 
         <ThemeToggle />

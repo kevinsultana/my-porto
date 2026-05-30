@@ -58,7 +58,7 @@ export default function Skills({ dict }) {
   ];
 
   return (
-    <section id="skills" className="py-10 overflow-hidden relative">
+    <section id="projects" className="py-10 overflow-hidden relative">
       {/* Judul Section */}
       <div className="text-center mb-16 relative z-20">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-brand-text">

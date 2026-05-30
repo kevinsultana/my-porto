@@ -45,7 +45,7 @@ export default function Certificates({ dict }) {
   }, [selected]);
 
   return (
-    <section id="certificates" className="scroll-mt-14 py-8 md:py-12 relative">
+    <section id="projects" className="scroll-mt-14 py-8 md:py-12 relative">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Badge Judul */}
         <div className="text-center mb-12 md:mb-16">

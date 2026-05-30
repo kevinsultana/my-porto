@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "Kevin Sultana Herman",
-    "role": "Senior Software Programmer & Full-stack Developer",
+    "role": "Software Engineer & Full-stack Developer",
     "location": "Cibubur, Indonesia"
   },
   "navbar": {
@@ -16,7 +16,7 @@
   },
   "hero": {
     "greeting": "HALO, SAYA",
-    "role": "Senior Software Programmer & Full-stack Developer",
+    "role": "Software Engineer & Full-stack Developer",
     "tagline": "Membangun aplikasi web modern dengan Next.js, React, Express.js, dan infrastruktur Linux yang stabil untuk pengalaman pengguna yang cepat, rapi, dan siap dipakai di produksi.",
     "ctaProjects": "Lihat Proyek",
     "ctaContact": "Hubungi Saya",
@@ -38,7 +38,7 @@
   "about": {
     "greeting": "Halo, saya",
     "name": "Kevin Sultana Herman",
-    "role": "Senior Software Programmer & Full-stack Developer",
+    "role": "Senior Software Engineer & Full-stack Developer",
     "bio": "Saya membangun produk web end-to-end dengan fokus pada performa, arsitektur yang bersih, dan pengalaman pengguna yang jelas. Pengalaman saya mencakup Reachable Goods untuk e-commerce dengan integrasi Midtrans, Yayasan Program Nutrisi untuk sistem manajemen operasional, serta proyek freelance untuk CRM travel dan website konstruksi di Amerika Serikat.",
     "downloadCv": "Unduh CV"
   },

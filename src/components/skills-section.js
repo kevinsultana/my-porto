@@ -125,7 +125,7 @@ export default function Skills({ dict }) {
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-linear-to-l from-brand-bg to-transparent z-10 pointer-events-none" />
 
         {/* Baris 1: Jalan ke Kiri */}
-        <div className="flex w-max animate-scroll pause-on-hover py-4">
+        <div className="skill-marquee flex w-max animate-scroll pause-on-hover py-4">
           <div className="flex gap-4 md:gap-6 pr-4 md:pr-6">
             {multipliedTop.map((skill, index) => (
               <SkillCard key={`top-1-${index}`} skill={skill} />
@@ -139,7 +139,7 @@ export default function Skills({ dict }) {
         </div>
 
         {/* Baris 2: Jalan ke Kanan (Reverse) */}
-        <div className="flex w-max animate-scroll-reverse pause-on-hover py-4">
+        <div className="skill-marquee skill-marquee-reverse flex w-max animate-scroll-reverse pause-on-hover py-4">
           <div className="flex gap-4 md:gap-6 pr-4 md:pr-6">
             {multipliedBottom.map((skill, index) => (
               <SkillCard key={`bottom-1-${index}`} skill={skill} />
@@ -155,18 +155,26 @@ export default function Skills({ dict }) {
 
       <style>{`
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); } 
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); } 
         }
         @keyframes scroll-reverse {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
         }
         .animate-scroll {
-          animation: scroll 60s linear infinite;
+          animation: scroll 60s linear infinite !important;
+          will-change: transform;
+          transform: translate3d(0, 0, 0);
         }
         .animate-scroll-reverse {
-          animation: scroll-reverse 60s linear infinite;
+          animation: scroll-reverse 60s linear infinite !important;
+          will-change: transform;
+          transform: translate3d(0, 0, 0);
+        }
+        .skill-marquee {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
         }
         .pause-on-hover:hover {
           animation-play-state: paused;

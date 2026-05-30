@@ -96,15 +96,15 @@ export default function Skills({ dict }) {
   // Array digandakan agar animasi scrolling tidak pernah putus (seamless loop)
   const multipliedTop = [
     ...topRowSkills,
-    // ...topRowSkills,
-    // ...topRowSkills,
+    ...topRowSkills,
+    ...topRowSkills,
     // ...topRowSkills,
     // ...topRowSkills,
   ];
   const multipliedBottom = [
     ...bottomRowSkills,
-    // ...bottomRowSkills,
-    // ...bottomRowSkills,
+    ...bottomRowSkills,
+    ...bottomRowSkills,
     // ...bottomRowSkills,
     // ...bottomRowSkills,
   ];
@@ -163,10 +163,10 @@ export default function Skills({ dict }) {
           100% { transform: translateX(0); }
         }
         .animate-scroll {
-          animation: scroll 50s linear infinite;
+          animation: scroll 60s linear infinite;
         }
         .animate-scroll-reverse {
-          animation: scroll-reverse 50s linear infinite;
+          animation: scroll-reverse 60s linear infinite;
         }
         .pause-on-hover:hover {
           animation-play-state: paused;

@@ -54,7 +54,7 @@ export default function HeroSection({ dict }) {
             </a>
             {/* Tautan Instagram bisa Anda isi dengan milik Anda atau tautan bisnis Anda */}
             <a
-              href="#"
+              href="https://www.instagram.com/kevinsultana"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-brand-pink transition-colors"

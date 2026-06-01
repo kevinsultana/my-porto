@@ -12,8 +12,8 @@ import { getDictionary } from "@/lib/dictionary";
 const locales = ["id", "en"];
 
 const socialLinks = {
-  email: "mailto:hello@kevinsultanaherman.com",
-  whatsapp: "https://wa.me/6200000000000",
+  email: "mailto:kevinpdg.ks@gmail.com",
+  whatsapp: "https://wa.me/6285718159757",
   linkedin: "https://www.linkedin.com/in/kevinsultanaherman/",
   github: "https://github.com/kevinsultana",
 };

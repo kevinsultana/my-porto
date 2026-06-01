@@ -63,19 +63,23 @@
         "period": "Jul 2025 - Sekarang",
         "location": "Remote",
         "description": [
-          "Mengembangkan, memelihara, dan mengoptimalkan performa aplikasi perangkat lunak skala produksi."
+          "Membangun platform IT Service Management (ITSM) berbasis web untuk PLN yang mencakup alur kerja Incident, Service Request, dan Change sesuai standar praktik ITIL.",
+          "Mengembangkan dashboard responsif (kepatuhan SLA, backlog tiket) serta menerapkan Role-Based Access Control (RBAC) dan isolasi data yang aman.",
+          "Mengoptimalkan performa dan UX menggunakan komponen UI reusable, input debouncing, dan virtualisasi."
         ],
-        "technologies": ["React.js", "Next.js"]
+        "technologies": ["Next.js", "React.js", "TypeScript", "Tailwind CSS"]
       },
       {
         "company": "PT Unotek Dimensi Mandiri",
-        "role": "Mobile Application Developer (Contract)",
+        "role": "Mobile Application Developer",
         "period": "Okt 2024 - Jul 2025",
-        "location": "Indonesia",
+        "location": "Jakarta, Indonesia",
         "description": [
-          "Mengembangkan aplikasi mobile berkinerja tinggi menggunakan React Native untuk platform Android dan iOS."
+          "Membangun aplikasi React Native lintas platform untuk digitalisasi operasional gudang (picking, packing, stock opname).",
+          "Mengimplementasikan pemindaian Barcode/QR dan integrasi cetak termal (Bluetooth/Wi-Fi) dengan perintah ESC/POS dan ZPL/CPCL untuk label pengemasan.",
+          "Meningkatkan performa aplikasi pada perangkat spesifikasi rendah menggunakan FlatList virtualization dan memoization, serta mengintegrasikan REST API."
         ],
-        "technologies": ["React Native", "Mobile Development"]
+        "technologies": ["React Native", "Expo", "Zustand", "REST API"]
       },
       {
         "company": "Dian Cahaya Travel",
@@ -97,6 +101,67 @@
     "showMore": "Tampilkan lebih banyak",
     "showLess": "Tampilkan lebih sedikit",
     "projects": [
+      {
+        "name": "ITSM (PLN BAg)",
+        "category": "IT Service Management",
+        "description": "Frontend Next.js untuk sistem IT Service Management dengan portal Helpdesk dan Beranda, alur manajemen tiket, persetujuan Change Request, pelaporan, manajemen agen, dan konfigurasi SLA.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "JavaScript",
+          "CKEditor",
+          "Docker",
+          "Nginx"
+        ],
+        "image": "/images/itsm.png",
+        "link": null,
+        "liveDemoUrl": null,
+        "githubUrl": null,
+        "tags": [
+          "Next.js",
+          "React",
+          "ITSM",
+          "Helpdesk",
+          "Ticketing",
+          "Frontend"
+        ]
+      },
+      {
+        "name": "Hearts2 Mobile (Hino Motors)",
+        "category": "Aplikasi Mobile Lintas Platform",
+        "description": "Aplikasi mobile lintas platform yang dibangun dengan React Native, memiliki basis kode terpisah untuk Android dan iOS, serta memanfaatkan library UI seperti React Native Paper dan React Navigation.",
+        "technologies": [
+          "React Native",
+          "TypeScript",
+          "JavaScript",
+          "Android",
+          "iOS"
+        ],
+        "image": "/images/heartsmobile.png",
+        "link": null,
+        "liveDemoUrl": null,
+        "githubUrl": null,
+        "tags": ["React Native", "Mobile App", "Android", "iOS", "Frontend"]
+      },
+
+      {
+        "name": "MBG SPPG",
+        "category": "Platform ERP / Operasional",
+        "description": "Platform ERP terpadu yang dibangun dengan Next.js, Node.js, dan Prisma untuk menyederhanakan pengiriman makanan, absensi staf, penggajian, stok gudang, dan pelacakan keuangan.",
+        "technologies": ["Next.js", "React", "Node.js", "Prisma"],
+        "image": "/images/mbgsppg.png",
+        "link": "https://mbgsppg.kevinsultana.online/",
+        "liveDemoUrl": "https://mbgsppg.kevinsultana.online/",
+        "githubUrl": null,
+        "tags": [
+          "Next.js",
+          "React",
+          "Prisma",
+          "ERP",
+          "Management System",
+          "Full-stack"
+        ]
+      },
       {
         "name": "Reachable Goods",
         "category": "E-commerce Berkinerja Tinggi",
@@ -123,24 +188,6 @@
         ]
       },
       {
-        "name": "MBG SPPG",
-        "category": "Platform ERP / Operasional",
-        "description": "Platform ERP terpadu yang dibangun dengan Next.js, Node.js, dan Prisma untuk menyederhanakan pengiriman makanan, absensi staf, penggajian, stok gudang, dan pelacakan keuangan.",
-        "technologies": ["Next.js", "React", "Node.js", "Prisma"],
-        "image": "/images/mbgsppg.png",
-        "link": "https://mbgsppg.kevinsultana.online/",
-        "liveDemoUrl": "https://mbgsppg.kevinsultana.online/",
-        "githubUrl": null,
-        "tags": [
-          "Next.js",
-          "React",
-          "Prisma",
-          "ERP",
-          "Management System",
-          "Full-stack"
-        ]
-      },
-      {
         "name": "Superlife Bio Indonesia",
         "category": "Company Profile & Landing Page",
         "description": "Company profile dan landing page modern yang dibangun dengan React dan Vite, dirancang untuk menampilkan produk, sejarah perusahaan, pencapaian, dan jangkauan global secara jelas.",
@@ -150,48 +197,6 @@
         "liveDemoUrl": "https://superlifebioindonesia.com/",
         "githubUrl": "https://github.com/kevinsultana/superlifebio-indonesia",
         "tags": ["React", "Vite", "Company Profile", "Landing Page", "Frontend"]
-      },
-      {
-        "name": "Hearts2 Mobile (Hino Motors)",
-        "category": "Aplikasi Mobile Lintas Platform",
-        "description": "Aplikasi mobile lintas platform yang dibangun dengan React Native, memiliki basis kode terpisah untuk Android dan iOS, serta memanfaatkan library UI seperti React Native Paper dan React Navigation.",
-        "technologies": [
-          "React Native",
-          "TypeScript",
-          "JavaScript",
-          "Android",
-          "iOS"
-        ],
-        "image": "/images/heartsmobile.png",
-        "link": null,
-        "liveDemoUrl": null,
-        "githubUrl": null,
-        "tags": ["React Native", "Mobile App", "Android", "iOS", "Frontend"]
-      },
-      {
-        "name": "ITSM (PLN BAg)",
-        "category": "IT Service Management",
-        "description": "Frontend Next.js untuk sistem IT Service Management dengan portal Helpdesk dan Beranda, alur manajemen tiket, persetujuan Change Request, pelaporan, manajemen agen, dan konfigurasi SLA.",
-        "technologies": [
-          "Next.js",
-          "React",
-          "JavaScript",
-          "CKEditor",
-          "Docker",
-          "Nginx"
-        ],
-        "image": "/images/itsm.png",
-        "link": null,
-        "liveDemoUrl": null,
-        "githubUrl": null,
-        "tags": [
-          "Next.js",
-          "React",
-          "ITSM",
-          "Helpdesk",
-          "Ticketing",
-          "Frontend"
-        ]
       },
       {
         "name": "Point Juaro (E-commerce)",

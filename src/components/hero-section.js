@@ -156,18 +156,18 @@ export default function HeroSection({ dict }) {
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
               <div className="absolute top-10 left-10 text-white">
-                <h3 className="text-3xl font-black tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight">
                   Kevin Sultana{" "}
                   <span className="text-brand-purple">Herman</span>
                 </h3>
-                <p className="text-base font-bold text-white/80">
+                <p className="text-sm md:text-base font-bold text-white/80">
                   Senior Full-stack Developer
                 </p>
               </div>
 
               {/* Bento Detail Bawah */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-md border border-white/10">
-                <div className="flex items-center gap-3">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 text-white p-3 sm:p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-md border border-white/10">
+                <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                   {/* Avatar Mini */}
                   <Image
                     src="/images/Hero2.png"
@@ -175,21 +175,23 @@ export default function HeroSection({ dict }) {
                     width={40}
                     height={40}
                     sizes="40px"
-                    className="w-10 h-10 rounded-full border border-white/20 object-cover"
+                    className="h-8 w-8 rounded-full border border-white/20 object-cover sm:h-10 sm:w-10"
                   />
-                  <div>
-                    <p className="text-base font-black text-white/90">
+                  <div className="min-w-0">
+                    <p className="truncate text-xs font-black text-white/90 sm:text-base">
                       @kevinsultana
                     </p>
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-[0_0_10px_2px_rgba(34,211,238,0.8)]" />
-                      <p className="text-xs font-bold text-white/90">Online</p>
+                    <div className="flex items-center gap-1 sm:gap-1.5">
+                      <div className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.8)] sm:h-2.5 sm:w-2.5" />
+                      <p className="whitespace-nowrap text-[10px] font-bold text-white/90 sm:text-xs">
+                        Online
+                      </p>
                     </div>
                   </div>
                 </div>
                 <a
                   href="#contact"
-                  className="px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs font-black rounded-full transition-colors backdrop-blur-sm"
+                  className="whitespace-nowrap px-3 py-1 bg-white/20 hover:bg-white/30 text-white text-[10px] font-black rounded-full transition-colors backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-xs"
                 >
                   Contact Me
                 </a>

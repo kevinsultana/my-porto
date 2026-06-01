@@ -224,11 +224,11 @@ function ProjectCard({ project, index }) {
               transition={{ duration: 0.18 }}
               className="relative z-10 mx-4 max-w-3xl rounded-2xl bg-surface p-4 shadow-xl"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col gap-4 md:flex-row md:items-start">
                 <img
                   src={image}
                   alt={title}
-                  className="h-48 w-48 shrink-0 rounded-lg object-cover"
+                  className="h-56 w-full rounded-lg object-cover md:h-48 md:w-48 md:shrink-0"
                 />
 
                 <div className="flex flex-1 flex-col gap-3">
@@ -266,13 +266,13 @@ function ProjectCard({ project, index }) {
                     </div>
                   )}
 
-                  <div className="mt-3 flex gap-3">
+                  <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                     {data.liveDemoUrl && (
                       <a
                         href={data.liveDemoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-3 py-2 text-sm font-bold text-white"
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-blue px-3 py-2 text-sm font-bold text-white"
                       >
                         <ExternalLink className="h-4 w-4" /> Live Demo
                       </a>
@@ -283,7 +283,7 @@ function ProjectCard({ project, index }) {
                         href={data.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-surface-border px-3 py-2 text-sm font-bold text-brand-ink"
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-surface-border px-3 py-2 text-sm font-bold text-brand-ink"
                       >
                         <Code2 className="h-4 w-4" /> Source Code
                       </a>

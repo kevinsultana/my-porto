@@ -93,7 +93,27 @@
   "projects": {
     "title": "Projects",
     "accent": "Selected",
-    "subtitle": "A few projects highlighting my work in dashboards, infrastructure, and modern web applications"
+    "subtitle": "A few projects highlighting my work in dashboards, infrastructure, and modern web applications",
+    "projects": [
+      {
+        "name": "Reachable Goods",
+        "category": "E-commerce Platform",
+        "description": "An e-commerce platform built with Next.js, React, and integrated with Midtrans for seamless payment processing.",
+        "technologies": ["Next.js", "React", "Midtrans"],
+        "image": "/images/reachable-goods.png",
+        "link": "https://reachable-goods.vercel.app/",
+        "tags": ["Next.js", "React", "Midtrans", "E-commerce"]
+      },
+      {
+        "name": "Nutritional Program Foundation",
+        "category": "Operational Management System",
+        "description": "Operational management system for a non-profit organization, built with Express.js and React.",
+        "technologies": ["Express.js", "React"],
+        "image": "/images/nutritional-program.png",
+        "link": "https://nutritional-program.vercel.app/",
+        "tags": ["Express.js", "React", "Non-profit"]
+      }
+    ]
   },
   "contact": {
     "title": "Let’s Talk",

@@ -35,7 +35,7 @@ const getTechIcon = (tag) => {
 function ProjectCard({ project, index }) {
   const data = project?.frontmatter || project?.meta || project || {};
 
-  const title = data.title || "Proyek Tanpa Judul";
+  const title = data.name || "Proyek Tanpa Judul";
   const category = data.category || "Project";
   const description = data.description || "";
   const image =
@@ -131,12 +131,8 @@ export default function ProjectsSection({ projects = [], dict }) {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-2">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={project.title || project.name || index}
-            project={project}
-            index={index}
-          />
+        {dict?.projects?.map((project, index) => (
+          <ProjectCard key={project.name} project={project} index={index} />
         ))}
       </div>
     </section>

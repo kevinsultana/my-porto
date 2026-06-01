@@ -93,7 +93,27 @@
   "projects": {
     "title": "Proyek",
     "accent": "Pilihan",
-    "subtitle": "Beberapa proyek yang menonjolkan pengalaman saya dalam dashboard, infrastruktur, dan aplikasi web modern"
+    "subtitle": "Beberapa proyek yang menonjolkan pengalaman saya dalam dashboard, infrastruktur, dan aplikasi web modern",
+    "projects": [
+      {
+        "name": "Reachable Goods",
+        "category": "Platform E-commerce",
+        "description": "Platform e-commerce yang dibangun dengan Next.js dan React, terintegrasi dengan Midtrans untuk pemrosesan pembayaran yang lancar.",
+        "technologies": ["Next.js", "React", "Midtrans"],
+        "image": "/images/reachable-goods.png",
+        "link": "https://reachable-goods.vercel.app/",
+        "tags": ["Next.js", "React", "Midtrans", "E-commerce"]
+      },
+      {
+        "name": "Nutritional Program Foundation",
+        "category": "Sistem Manajemen Operasional",
+        "description": "Sistem manajemen operasional untuk organisasi nirlaba, dibangun dengan Express.js dan React.",
+        "technologies": ["Express.js", "React"],
+        "image": "/images/nutritional-program.png",
+        "link": "https://nutritional-program.vercel.app/",
+        "tags": ["Express.js", "React", "Non-profit"]
+      }
+    ]
   },
   "contact": {
     "title": "Mari Berdiskusi",

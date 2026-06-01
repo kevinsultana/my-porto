@@ -2,7 +2,22 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Code2, X } from "lucide-react";
+import {
+  ExternalLink,
+  Code2,
+  X,
+  Smartphone,
+  MonitorSmartphone,
+  ShoppingBag,
+  HandHeart,
+  GraduationCap,
+  Layers3,
+  LayoutDashboard,
+  BadgeCheck,
+  BriefcaseBusiness,
+  FolderCode,
+  CreditCard,
+} from "lucide-react";
 
 // Fungsi pemetaan Tag ke URL Logo Devicon disesuaikan dengan Tech Stack Anda
 const getTechIcon = (tag) => {
@@ -10,6 +25,8 @@ const getTechIcon = (tag) => {
     "Next.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
     React:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "React.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     "Express.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
@@ -19,6 +36,18 @@ const getTechIcon = (tag) => {
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
     "Tailwind CSS":
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    Vite: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+    JavaScript:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    Prisma:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
+    PostCSS:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postcss/postcss-original.svg",
+    ESLint:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg",
+    "React Native":
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original.svg",
     Supabase:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
     Linux:
@@ -33,6 +62,46 @@ const getTechIcon = (tag) => {
   };
   return icons[tag]; // Mengembalikan URL logo jika ada, jika tidak ada akan mengembalikan undefined (hanya menampilkan teks)
 };
+
+const getTagIcon = (tag) => {
+  const tagIcons = {
+    "Mobile Development": Smartphone,
+    "Mobile App": Smartphone,
+    Android: Smartphone,
+    iOS: Smartphone,
+    "Landing Page": LayoutDashboard,
+    "Company Profile": BriefcaseBusiness,
+    Frontend: MonitorSmartphone,
+    "Final Project": FolderCode,
+    "Non-profit": HandHeart,
+    "E-commerce": ShoppingBag,
+    "E-commerce Platform": ShoppingBag,
+    Midtrans: CreditCard,
+    Hacktiv8: GraduationCap,
+    "React Native": Smartphone,
+    Vite: Layers3,
+    Prisma: BadgeCheck,
+  };
+
+  return tagIcons[tag] || null;
+};
+
+function TagIcon({ tag }) {
+  const iconUrl = getTechIcon(tag);
+  const Icon = getTagIcon(tag);
+
+  if (iconUrl) {
+    return (
+      <img src={iconUrl} alt={tag} className="h-3.5 w-3.5 object-contain" />
+    );
+  }
+
+  if (Icon) {
+    return <Icon className="h-3.5 w-3.5" />;
+  }
+
+  return null;
+}
 
 function ProjectCard({ project, index }) {
   const data = project?.frontmatter || project?.meta || project || {};
@@ -87,13 +156,26 @@ function ProjectCard({ project, index }) {
           </div>
         </div>
 
-        <div className="p-6 md:p-8 flex flex-col flex-1">
+        <div className="p-4 md:p-6 flex flex-col flex-1">
           <h4 className="text-2xl font-black text-brand-ink mb-3 group-hover:text-brand-amber transition-colors duration-300 line-clamp-1">
             {title}
           </h4>
 
-          <p className="text-brand-ink/70 font-medium leading-relaxed mb-6 line-clamp-2 flex-1">
-            {description}
+          <p
+            className="text-brand-ink/70 font-medium mb-6"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              wordBreak: "normal",
+              overflowWrap: "normal",
+              lineHeight: "1.5rem",
+              maxHeight: "3rem",
+            }}
+          >
+            {description || "No description available."}
           </p>
 
           {tags.length > 0 && (
@@ -104,13 +186,7 @@ function ProjectCard({ project, index }) {
                   className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-text/5 text-brand-ink/80 text-xs font-bold rounded-full border border-surface-border/70 transition-colors group-hover:bg-surface group-hover:shadow-sm group-hover:border-brand-text/10"
                 >
                   {/* Cek apakah logonya ada di fungsi mapping kita */}
-                  {getTechIcon(tag) && (
-                    <img
-                      src={getTechIcon(tag)}
-                      alt={tag}
-                      className="w-3.5 h-3.5 object-contain"
-                    />
-                  )}
+                  <TagIcon tag={tag} />
                   {tag}
                 </span>
               ))}
@@ -183,13 +259,7 @@ function ProjectCard({ project, index }) {
                           key={i}
                           className="inline-flex items-center gap-2 rounded-full bg-brand-text/5 px-3 py-1 text-xs font-bold text-brand-ink/80 border border-surface-border/70"
                         >
-                          {getTechIcon(t) && (
-                            <img
-                              src={getTechIcon(t)}
-                              alt={t}
-                              className="h-4 w-4"
-                            />
-                          )}
+                          <TagIcon tag={t} />
                           {t}
                         </span>
                       ))}
@@ -230,6 +300,11 @@ function ProjectCard({ project, index }) {
 }
 
 export default function ProjectsSection({ projects = [], dict }) {
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const projectList = projects.length > 0 ? projects : dict?.projects || [];
+  const hasMoreProjects = projectList.length > 3;
+  const mobileProjects = showAllMobile ? projectList : projectList.slice(0, 3);
+
   return (
     <section id="projects" className="relative py-10 sm:py-14">
       <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
@@ -251,11 +326,33 @@ export default function ProjectsSection({ projects = [], dict }) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-2">
-        {dict?.projects?.map((project, index) => (
+      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+        {projectList.map((project, index) => (
           <ProjectCard key={project.name} project={project} index={index} />
         ))}
       </div>
+
+      <div className="grid grid-cols-1 gap-6 md:hidden">
+        {mobileProjects.map((project, index) => (
+          <ProjectCard key={project.name} project={project} index={index} />
+        ))}
+      </div>
+
+      {hasMoreProjects && (
+        <div className="mt-8 flex justify-center md:hidden">
+          <button
+            type="button"
+            onClick={() => setShowAllMobile((current) => !current)}
+            className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-2 text-sm font-bold text-brand-text shadow-sm transition-all hover:border-brand-amber/30 hover:text-brand-amber"
+          >
+            <span>
+              {showAllMobile
+                ? dict?.showLess || "Show less"
+                : dict?.showMore || "Show more"}
+            </span>
+          </button>
+        </div>
+      )}
     </section>
   );
 }

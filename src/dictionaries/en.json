@@ -93,29 +93,116 @@
   "projects": {
     "title": "Projects",
     "accent": "Selected",
-    "subtitle": "A few projects highlighting my work in dashboards, infrastructure, and modern web applications",
+    "subtitle": "A curated selection of polished projects that show how I turn ideas into clear, useful, production-ready web experiences.",
+    "showMore": "Show more",
+    "showLess": "Show less",
     "projects": [
       {
         "name": "Reachable Goods",
-        "category": "E-commerce Platform",
-        "description": "An e-commerce platform built with Next.js, React, and integrated with Midtrans for seamless payment processing.",
-        "technologies": ["Next.js", "React", "Midtrans"],
-        "image": "/images/reachable-goods.png",
+        "category": "High-Performance E-commerce",
+        "description": "A fast e-commerce platform built with Next.js and React, powered by a Node.js and Prisma backend, and integrated with Midtrans for payments and Minio for scalable object storage.",
+        "technologies": [
+          "Next.js",
+          "Express.js",
+          "Node.js",
+          "Prisma",
+          "Midtrans",
+          "Minio"
+        ],
+        "image": "/images/reachablegoods.png",
         "link": "https://reachable-goods.vercel.app/",
         "liveDemoUrl": "https://reachable-goods.vercel.app/",
         "githubUrl": "https://github.com/kevinsultana/reachable-goods",
-        "tags": ["Next.js", "React", "Midtrans", "E-commerce"]
+        "tags": [
+          "Next.js",
+          "Express.js",
+          "Prisma",
+          "Midtrans",
+          "E-commerce",
+          "Full-stack"
+        ]
       },
       {
-        "name": "Nutritional Program Foundation",
-        "category": "Operational Management System",
-        "description": "Operational management system for a non-profit organization, built with Express.js and React.",
-        "technologies": ["Express.js", "React"],
-        "image": "/images/nutritional-program.png",
-        "link": "https://nutritional-program.vercel.app/",
-        "liveDemoUrl": "https://nutritional-program.vercel.app/",
-        "githubUrl": "https://github.com/kevinsultana/nutritional-program",
-        "tags": ["Express.js", "React", "Non-profit"]
+        "name": "MBG SPPG",
+        "category": "ERP / Operations Platform",
+        "description": "An integrated ERP platform built with Next.js, Node.js, and Prisma to streamline meal deliveries, attendance, payroll, warehouse stock, and financial tracking.",
+        "technologies": ["Next.js", "React", "Node.js", "Prisma"],
+        "image": "/images/mbgsppg.png",
+        "link": "https://mbg-sppg.vercel.app/",
+        "liveDemoUrl": "https://mbg-sppg.vercel.app/",
+        "githubUrl": "https://github.com/kevinsultana/mbg-sppg",
+        "tags": [
+          "Next.js",
+          "React",
+          "Prisma",
+          "ERP",
+          "Management System",
+          "Full-stack"
+        ]
+      },
+      {
+        "name": "Superlife Bio Indonesia",
+        "category": "Company Profile & Landing Page",
+        "description": "A modern company profile and landing page built with React and Vite, designed to present products, company history, achievements, and global presence with clarity.",
+        "technologies": ["React", "Vite", "JavaScript", "CSS"],
+        "image": "/images/superlife.png",
+        "link": "https://superlifebio-indonesia.vercel.app/",
+        "liveDemoUrl": "https://superlifebio-indonesia.vercel.app/",
+        "githubUrl": "https://github.com/kevinsultana/superlifebio-indonesia",
+        "tags": ["React", "Vite", "Company Profile", "Landing Page", "Frontend"]
+      },
+      {
+        "name": "Hearts2 Mobile",
+        "category": "Cross-Platform Mobile App",
+        "description": "A cross-platform mobile application built with React Native, featuring separate Android and iOS codebases and UI libraries such as React Native Paper and React Navigation.",
+        "technologies": [
+          "React Native",
+          "TypeScript",
+          "JavaScript",
+          "Android",
+          "iOS"
+        ],
+        "image": "/images/heartsmobile.png",
+        "link": "https://github.com/kevinsultana/hearts2-mobile",
+        "liveDemoUrl": "https://github.com/kevinsultana/hearts2-mobile",
+        "githubUrl": "https://github.com/kevinsultana/hearts2-mobile",
+        "tags": ["React Native", "Mobile App", "Android", "iOS", "Frontend"]
+      },
+      {
+        "name": "ITSM (PLN BAg)",
+        "category": "IT Service Management",
+        "description": "A Next.js frontend for an IT Service Management system with Helpdesk and Home portals, ticket workflows, Change Request approvals, reporting, agent management, and SLA configuration.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "JavaScript",
+          "CKEditor",
+          "Docker",
+          "Nginx"
+        ],
+        "image": "/images/itsm.png",
+        "link": "https://github.com/kevinsultana/itsm-fe",
+        "liveDemoUrl": "https://github.com/kevinsultana/itsm-fe",
+        "githubUrl": "https://github.com/kevinsultana/itsm-fe",
+        "tags": [
+          "Next.js",
+          "React",
+          "ITSM",
+          "Helpdesk",
+          "Ticketing",
+          "Frontend"
+        ]
+      },
+      {
+        "name": "Point Juaro (E-commerce)",
+        "category": "Bootcamp Final Project",
+        "description": "A final project built with Next.js, focused on modern frontend structure and code quality through PostCSS and ESLint configurations.",
+        "technologies": ["Next.js", "React", "JavaScript", "PostCSS", "ESLint"],
+        "image": "/images/pointjuaro.png",
+        "link": "https://github.com/kevinsultana/final-project-hactiv8",
+        "liveDemoUrl": "https://github.com/kevinsultana/final-project-hactiv8",
+        "githubUrl": "https://github.com/kevinsultana/final-project-hactiv8",
+        "tags": ["Next.js", "React", "Hacktiv8", "Final Project", "Frontend"]
       }
     ]
   },

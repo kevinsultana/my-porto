@@ -34,7 +34,7 @@ export default function ThemeToggle() {
         animate={{ x: isDark ? 24 : 0 }}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
       />
-      <div className="relative flex w-full items-center justify-between px-0.5 text-brand-text/70 sm:px-1">
+      <div className="relative flex w-full items-center justify-between mx-1 text-brand-text/70 sm:px-1">
         <SunMedium className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
         <Moon className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
       </div>

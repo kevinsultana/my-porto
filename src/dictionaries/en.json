@@ -152,7 +152,7 @@
         "tags": ["React", "Vite", "Company Profile", "Landing Page", "Frontend"]
       },
       {
-        "name": "Hearts2 Mobile",
+        "name": "Hearts2 Mobile (Hino Motors)",
         "category": "Cross-Platform Mobile App",
         "description": "A cross-platform mobile application built with React Native, featuring separate Android and iOS codebases and UI libraries such as React Native Paper and React Navigation.",
         "technologies": [

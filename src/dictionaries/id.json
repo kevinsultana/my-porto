@@ -152,7 +152,7 @@
         "tags": ["React", "Vite", "Company Profile", "Landing Page", "Frontend"]
       },
       {
-        "name": "Hearts2 Mobile",
+        "name": "Hearts2 Mobile (Hino Motors)",
         "category": "Aplikasi Mobile Lintas Platform",
         "description": "Aplikasi mobile lintas platform yang dibangun dengan React Native, memiliki basis kode terpisah untuk Android dan iOS, serta memanfaatkan library UI seperti React Native Paper dan React Navigation.",
         "technologies": [

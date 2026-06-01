@@ -102,6 +102,8 @@
         "technologies": ["Next.js", "React", "Midtrans"],
         "image": "/images/reachable-goods.png",
         "link": "https://reachable-goods.vercel.app/",
+        "liveDemoUrl": "https://reachable-goods.vercel.app/",
+        "githubUrl": "https://github.com/kevinsultana/reachable-goods",
         "tags": ["Next.js", "React", "Midtrans", "E-commerce"]
       },
       {
@@ -111,6 +113,8 @@
         "technologies": ["Express.js", "React"],
         "image": "/images/nutritional-program.png",
         "link": "https://nutritional-program.vercel.app/",
+        "liveDemoUrl": "https://nutritional-program.vercel.app/",
+        "githubUrl": "https://github.com/kevinsultana/nutritional-program",
         "tags": ["Express.js", "React", "Non-profit"]
       }
     ]

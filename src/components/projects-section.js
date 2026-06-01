@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Code2, X } from "lucide-react";
 
 // Fungsi pemetaan Tag ke URL Logo Devicon disesuaikan dengan Tech Stack Anda
 const getTechIcon = (tag) => {
@@ -34,6 +36,16 @@ const getTechIcon = (tag) => {
 
 function ProjectCard({ project, index }) {
   const data = project?.frontmatter || project?.meta || project || {};
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
 
   const title = data.name || "Proyek Tanpa Judul";
   const category = data.category || "Project";
@@ -52,7 +64,15 @@ function ProjectCard({ project, index }) {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="h-full"
     >
-      <div className="bg-surface border border-surface-border rounded-4xl overflow-hidden group hover:shadow-xl hover:border-brand-amber/30 transition-all duration-300 hover:-translate-y-1.5 transform-gpu h-full flex flex-col">
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => setIsOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") setIsOpen(true);
+        }}
+        className="bg-surface border border-surface-border rounded-4xl overflow-hidden group hover:shadow-xl hover:border-brand-amber/30 transition-all duration-300 hover:-translate-y-1.5 transform-gpu h-full flex flex-col cursor-pointer"
+      >
         <div
           className={`relative aspect-video w-full overflow-hidden border-b border-brand-text/5 bg-linear-to-br ${accent}`}
         >
@@ -104,6 +124,107 @@ function ProjectCard({ project, index }) {
           )}
         </div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+          >
+            <div
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              className="relative z-10 mx-4 max-w-3xl rounded-2xl bg-surface p-4 shadow-xl"
+            >
+              <div className="flex items-start gap-4">
+                <img
+                  src={image}
+                  alt={title}
+                  className="h-48 w-48 shrink-0 rounded-lg object-cover"
+                />
+
+                <div className="flex flex-1 flex-col gap-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl font-black text-brand-ink">
+                        {title}
+                      </h3>
+                      <p className="text-sm text-brand-ink/70">{category}</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(false)}
+                      aria-label="Tutup"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-surface-border bg-surface/60 text-brand-ink/80 hover:bg-surface"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  <p className="text-sm text-brand-ink/75">{description}</p>
+
+                  {tags && tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {tags.map((t, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-2 rounded-full bg-brand-text/5 px-3 py-1 text-xs font-bold text-brand-ink/80 border border-surface-border/70"
+                        >
+                          {getTechIcon(t) && (
+                            <img
+                              src={getTechIcon(t)}
+                              alt={t}
+                              className="h-4 w-4"
+                            />
+                          )}
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="mt-3 flex gap-3">
+                    {data.liveDemoUrl && (
+                      <a
+                        href={data.liveDemoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-3 py-2 text-sm font-bold text-white"
+                      >
+                        <ExternalLink className="h-4 w-4" /> Live Demo
+                      </a>
+                    )}
+
+                    {data.githubUrl && (
+                      <a
+                        href={data.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-surface-border px-3 py-2 text-sm font-bold text-brand-ink"
+                      >
+                        <Code2 className="h-4 w-4" /> Source Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

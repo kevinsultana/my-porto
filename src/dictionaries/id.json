@@ -110,9 +110,9 @@
           "Minio"
         ],
         "image": "/images/reachablegoods.png",
-        "link": "https://reachable-goods.vercel.app/",
-        "liveDemoUrl": "https://reachable-goods.vercel.app/",
-        "githubUrl": "https://github.com/kevinsultana/reachable-goods",
+        "link": "https://reachablegoods.store/",
+        "liveDemoUrl": "https://reachablegoods.store/",
+        "githubUrl": null,
         "tags": [
           "Next.js",
           "Express.js",
@@ -128,9 +128,9 @@
         "description": "Platform ERP terpadu yang dibangun dengan Next.js, Node.js, dan Prisma untuk menyederhanakan pengiriman makanan, absensi staf, penggajian, stok gudang, dan pelacakan keuangan.",
         "technologies": ["Next.js", "React", "Node.js", "Prisma"],
         "image": "/images/mbgsppg.png",
-        "link": "https://mbg-sppg.vercel.app/",
-        "liveDemoUrl": "https://mbg-sppg.vercel.app/",
-        "githubUrl": "https://github.com/kevinsultana/mbg-sppg",
+        "link": "https://mbgsppg.kevinsultana.online/",
+        "liveDemoUrl": "https://mbgsppg.kevinsultana.online/",
+        "githubUrl": null,
         "tags": [
           "Next.js",
           "React",
@@ -146,8 +146,8 @@
         "description": "Company profile dan landing page modern yang dibangun dengan React dan Vite, dirancang untuk menampilkan produk, sejarah perusahaan, pencapaian, dan jangkauan global secara jelas.",
         "technologies": ["React", "Vite", "JavaScript", "CSS"],
         "image": "/images/superlife.png",
-        "link": "https://superlifebio-indonesia.vercel.app/",
-        "liveDemoUrl": "https://superlifebio-indonesia.vercel.app/",
+        "link": "https://superlifebioindonesia.com/",
+        "liveDemoUrl": "https://superlifebioindonesia.com/",
         "githubUrl": "https://github.com/kevinsultana/superlifebio-indonesia",
         "tags": ["React", "Vite", "Company Profile", "Landing Page", "Frontend"]
       },
@@ -163,9 +163,9 @@
           "iOS"
         ],
         "image": "/images/heartsmobile.png",
-        "link": "https://github.com/kevinsultana/hearts2-mobile",
-        "liveDemoUrl": "https://github.com/kevinsultana/hearts2-mobile",
-        "githubUrl": "https://github.com/kevinsultana/hearts2-mobile",
+        "link": null,
+        "liveDemoUrl": null,
+        "githubUrl": null,
         "tags": ["React Native", "Mobile App", "Android", "iOS", "Frontend"]
       },
       {
@@ -181,9 +181,9 @@
           "Nginx"
         ],
         "image": "/images/itsm.png",
-        "link": "https://github.com/kevinsultana/itsm-fe",
-        "liveDemoUrl": "https://github.com/kevinsultana/itsm-fe",
-        "githubUrl": "https://github.com/kevinsultana/itsm-fe",
+        "link": null,
+        "liveDemoUrl": null,
+        "githubUrl": null,
         "tags": [
           "Next.js",
           "React",
@@ -199,8 +199,8 @@
         "description": "Proyek akhir yang dibangun dengan Next.js, berfokus pada struktur frontend modern dan kualitas kode melalui konfigurasi PostCSS dan ESLint.",
         "technologies": ["Next.js", "React", "JavaScript", "PostCSS", "ESLint"],
         "image": "/images/pointjuaro.png",
-        "link": "https://github.com/kevinsultana/final-project-hactiv8",
-        "liveDemoUrl": "https://github.com/kevinsultana/final-project-hactiv8",
+        "link": "https://final-project-hactiv8.vercel.app/",
+        "liveDemoUrl": "https://final-project-hactiv8.vercel.app/",
         "githubUrl": "https://github.com/kevinsultana/final-project-hactiv8",
         "tags": ["Next.js", "React", "Hacktiv8", "Final Project", "Frontend"]
       }

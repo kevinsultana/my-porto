@@ -15,7 +15,7 @@ export default function ContactSection({ dict, socialLinks }) {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xojbeear", {
+      const response = await fetch("https://formspree.io/f/xzdwngra", {
         method: "POST",
         body: formData,
         headers: {
@@ -74,11 +74,11 @@ export default function ContactSection({ dict, socialLinks }) {
                   <a
                     href={
                       socialLinks?.email ||
-                      `mailto:${contactInfo.emailValue || "kevinsultanaherman@gmail.com"}`
+                      `mailto:${contactInfo.emailValue || "kevinpdg.ks@gmail.com"}`
                     }
                     className="text-lg font-black text-brand-text hover:text-brand-purple transition-colors"
                   >
-                    {contactInfo.emailValue || "kevinsultanaherman@gmail.com"}
+                    {contactInfo.emailValue || "kevinpdg.ks@gmail.com"}
                   </a>
                 </div>
               </div>

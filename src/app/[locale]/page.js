@@ -8,6 +8,7 @@ import Experience from "@/components/experience-section";
 import ProjectsSection from "@/components/projects-section";
 import ContactSection from "@/components/contact-section";
 import { getDictionary } from "@/lib/dictionary";
+import MouseGlow from "@/components/mouse-glow";
 
 const locales = ["id", "en"];
 
@@ -33,6 +34,7 @@ export default async function Home({ params }) {
 
   return (
     <main className="portfolio-shell relative isolate overflow-hidden bg-background text-foreground selection:bg-brand-pink selection:text-white">
+      <MouseGlow />
       <Navbar locale={locale} dict={dict.navbar} />
       <div className="pointer-events-none absolute inset-0 -z-20 subtle-grid" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(245,158,11,0.08),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(15,23,42,0.06),transparent_28%)]" />

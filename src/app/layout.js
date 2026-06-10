@@ -14,15 +14,14 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default:
-      "Kevin Sultana Herman | Senior Software Engineer & DevOps Enthusiast",
+    default: "Kevin Sultana Herman | Software Engineer & Full-stack Developer",
     template: "%s | Kevin Sultana Herman",
   },
   description:
-    "Portfolio of Kevin Sultana Herman, a senior software Engineer, full-stack developer, and DevOps enthusiast building modern web experiences and resilient infrastructure.",
+    "Portfolio of Kevin Sultana Herman, a software Engineer, full-stack developer, and DevOps enthusiast building modern web experiences and resilient infrastructure.",
   keywords: [
     "Kevin Sultana Herman",
-    "Senior Software Engineer",
+    "Software Engineer",
     "Full-stack Developer",
     "DevOps Enthusiast",
     "Next.js",
@@ -35,8 +34,7 @@ export const metadata = {
   creator: "Kevin Sultana Herman",
   publisher: "Kevin Sultana Herman",
   openGraph: {
-    title:
-      "Kevin Sultana Herman | Senior Software Engineer & DevOps Enthusiast",
+    title: "Kevin Sultana Herman | Software Engineer & Full-stack Developer",
     description:
       "Explore Kevin Sultana Herman's portfolio, featured projects, and approach to full-stack development, infrastructure, and self-hosted systems.",
     type: "website",
@@ -45,8 +43,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary",
-    title:
-      "Kevin Sultana Herman | Senior Software Engineer & DevOps Enthusiast",
+    title: "Kevin Sultana Herman | Software Engineer & Full-stack Developer",
     description:
       "Portfolio of Kevin Sultana Herman, a full-stack developer focused on Next.js, React, and DevOps.",
   },

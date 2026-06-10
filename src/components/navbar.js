@@ -74,14 +74,22 @@ export default function Navbar({ locale = "en", dict = {} }) {
   };
 
   const handleNavLinkClick = (id) => {
+    // Update active section state
     setActiveSection(id);
+    // Indicate that scrolling was triggered by a click to avoid IntersectionObserver interference
     isClickScrolling.current = true;
 
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    // Smoothly scroll to the target section
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
 
+    // Reset the click-scrolling flag after a short delay
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
-    }, 2000);
+    }, 500);
   };
 
   const menuItems = [

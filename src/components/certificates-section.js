@@ -71,7 +71,7 @@ export default function Certificates({ dict }) {
               <button
                 type="button"
                 onClick={() => setSelected(cert)}
-                className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-brand-text/5 border border-brand-text/10 cursor-pointer transition-all duration-500 ease-out hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-brand-mint/20 group-hover:opacity-50 hover:opacity-100! transform-gpu block"
+                className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-surface border border-surface-border cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:z-10 hover:border-brand-mint/40 shadow-xs hover:shadow-md group-hover:opacity-60 hover:opacity-100! transform-gpu block"
               >
                 <Image
                   src={cert.img}

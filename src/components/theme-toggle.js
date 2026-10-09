@@ -26,11 +26,11 @@ export default function ThemeToggle() {
       aria-label={
         mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"
       }
-      className="relative inline-flex h-8 w-14 sm:h-9 sm:w-16 items-center rounded-full border border-brand-text/10 bg-brand-text/5 px-1 text-brand-text shadow-sm transition-colors hover:border-brand-purple/20 hover:bg-brand-text/10"
+      className="relative inline-flex h-8 w-14 sm:h-9 sm:w-16 items-center rounded-full border border-surface-border bg-surface-strong px-1 text-brand-text shadow-xs transition-colors hover:border-brand-blue/30"
     >
       <motion.span
         layout
-        className="absolute inset-y-1 left-1 w-5 rounded-full bg-brand-bg shadow-md sm:inset-y-1.5 sm:left-1.5 sm:w-6"
+        className="absolute inset-y-1 left-1 w-5 rounded-full bg-surface shadow-xs border border-surface-border/60 sm:inset-y-1.5 sm:left-1.5 sm:w-6"
         animate={{ x: isDark ? 24 : 0 }}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
       />

@@ -98,14 +98,14 @@ export default function HeroSection({ dict }) {
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-black rounded-full shadow-md transition-colors text-base"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-black rounded-full shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all text-base"
             >
               <Briefcase className="w-5 h-5" />{" "}
               {dict?.ctaProjects || "Lihat Proyek"}
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 border-2 border-brand-text/10 hover:border-brand-text/20 text-brand-text/80 font-black rounded-full transition-colors text-base"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-surface-border bg-surface-strong hover:border-brand-text/30 hover:-translate-y-0.5 text-brand-text font-black rounded-full shadow-xs transition-all text-base"
             >
               <Mail className="w-5 h-5" /> {dict?.ctaContact || "Hubungi Saya"}
             </a>
@@ -180,7 +180,7 @@ export default function HeroSection({ dict }) {
                   href="#contact"
                   className="inline-flex min-h-11 items-center justify-center whitespace-nowrap px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-xs font-black rounded-full transition-colors"
                 >
-                  Contact Me
+                  {dict?.ctaContact || "Contact Me"}
                 </a>
               </div>
             </motion.div>

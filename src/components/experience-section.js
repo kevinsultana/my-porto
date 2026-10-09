@@ -66,12 +66,10 @@ export default function Experience({ dict }) {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="bg-surface border border-surface-border rounded-4xl p-6 md:p-10 shadow-sm hover:shadow-xl hover:border-brand-purple/20 transition-all duration-300 group overflow-hidden relative transform-gpu">
-                <div className="absolute inset-0 bg-linear-to-br from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
+              <div className="bg-surface border border-surface-border rounded-4xl p-6 md:p-10 shadow-xs hover:shadow-md hover:border-brand-purple/30 hover:-translate-y-1 transition-all duration-200 group overflow-hidden relative transform-gpu">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
                   <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-text/5 flex items-center justify-center shrink-0 border border-brand-text/10 group-hover:scale-105 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/20 transition-all duration-300 transform-gpu">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-text/5 flex items-center justify-center shrink-0 border border-surface-border group-hover:scale-105 group-hover:border-brand-purple/20 transition-all duration-200 transform-gpu">
                       <Building2 className="w-7 h-7 text-brand-text/50 group-hover:text-brand-purple transition-colors" />
                     </div>
                     <div>
@@ -84,10 +82,10 @@ export default function Experience({ dict }) {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-2 text-sm md:text-base font-bold text-brand-text/60 md:text-right bg-brand-text/5 md:bg-transparent p-4 md:p-0 rounded-2xl md:rounded-none border md:border-none border-brand-text/5">
+                  <div className="flex flex-col gap-2 text-sm md:text-base font-bold text-brand-text/60 md:text-right bg-brand-text/5 md:bg-transparent p-4 md:p-0 rounded-2xl md:rounded-none border md:border-none border-surface-border/60">
                     <div className="flex items-center md:justify-end gap-2">
                       <Calendar className="w-4 h-4 text-brand-text/40" />
-                      <span>{item.period}</span>
+                      <span className="font-mono text-xs md:text-sm">{item.period}</span>
                     </div>
                     <div className="flex items-center md:justify-end gap-2">
                       <MapPin className="w-4 h-4 text-brand-text/40" />
@@ -99,7 +97,7 @@ export default function Experience({ dict }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 mb-8 relative z-10">
                   {item.description.map((desc, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-blue mt-2 shrink-0 group-hover:bg-brand-purple transition-colors duration-300" />
+                      <div className="w-2 h-2 rounded-full bg-brand-blue mt-2 shrink-0 group-hover:bg-brand-purple transition-colors duration-200" />
                       <p className="text-brand-text/70 font-medium leading-relaxed">
                         {desc}
                       </p>
@@ -107,10 +105,10 @@ export default function Experience({ dict }) {
                   ))}
                 </div>
 
-                <div className="border-t border-brand-text/5 pt-6 relative z-10">
+                <div className="border-t border-surface-border pt-6 relative z-10">
                   <div className="flex items-center gap-2 mb-4">
-                    <Code2 className="w-5 h-5 text-brand-text/40" />
-                    <span className="text-sm font-black tracking-wide text-brand-text/60 uppercase">
+                    <Code2 className="w-4 h-4 text-brand-text/40" />
+                    <span className="text-xs font-mono font-bold tracking-wider text-brand-text/60 uppercase">
                       {technologiesLabel}
                     </span>
                   </div>
@@ -118,7 +116,7 @@ export default function Experience({ dict }) {
                     {item.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-4 py-1.5 bg-brand-text/5 text-brand-text/80 text-sm font-bold rounded-full border border-brand-text/5 group-hover:border-brand-purple/10 group-hover:bg-brand-purple/5 transition-colors duration-300"
+                        className="px-3.5 py-1 bg-brand-text/5 text-brand-text/85 text-xs font-mono font-semibold rounded-full border border-surface-border group-hover:border-brand-purple/20 transition-colors duration-200"
                       >
                         {tech}
                       </span>

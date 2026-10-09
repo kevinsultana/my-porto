@@ -54,7 +54,6 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      // Added transition for smooth color changes when toggling dark/light mode
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased transition-colors duration-500`}
     >
       <body className="min-h-full bg-background text-foreground">

@@ -47,9 +47,8 @@ export default function Certificates({ dict }) {
   }, [selected]);
 
   return (
-    <section id="projects" className="scroll-mt-14 py-8 md:py-12 relative">
+    <section id="certificates" className="scroll-mt-14 py-8 md:py-12 relative">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Badge Judul */}
         <div className="text-center mb-12 md:mb-16">
           <h3 className="text-4xl md:text-5xl font-black tracking-tight text-brand-text">
             {dict?.title || "Sertifikat"}{" "}
@@ -89,7 +88,6 @@ export default function Certificates({ dict }) {
           ))}
         </div>
       </div>
-      {/* Modal preview */}
       <AnimatePresence>
         {selected && (
           <motion.div

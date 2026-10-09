@@ -93,25 +93,19 @@ const bottomRowSkills = [
 ];
 
 export default function Skills({ dict }) {
-  // Array digandakan agar animasi scrolling tidak pernah putus (seamless loop)
   const multipliedTop = [
     ...topRowSkills,
     ...topRowSkills,
     ...topRowSkills,
-    // ...topRowSkills,
-    // ...topRowSkills,
   ];
   const multipliedBottom = [
     ...bottomRowSkills,
     ...bottomRowSkills,
     ...bottomRowSkills,
-    // ...bottomRowSkills,
-    // ...bottomRowSkills,
   ];
 
   return (
-    <section id="projects" className="py-10 overflow-hidden relative">
-      {/* Judul Section */}
+    <section id="skills" className="py-10 overflow-hidden relative">
       <div className="text-center mb-16 relative z-20">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-brand-text">
           {dict?.title || "Tech"}{" "}
@@ -120,12 +114,10 @@ export default function Skills({ dict }) {
       </div>
 
       <div className="flex flex-col gap-6 md:gap-8 relative">
-        {/* Gradient Blur di Kiri dan Kanan */}
         <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-linear-to-r from-brand-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-linear-to-l from-brand-bg to-transparent z-10 pointer-events-none" />
 
-        {/* Baris 1: Jalan ke Kiri */}
-        <div className="skill-marquee flex w-max animate-scroll pause-on-hover py-4">
+        <div className="skill-marquee flex w-max animate-scroll pause-on-hover py-4 focus:outline-none" tabIndex={0} role="region" aria-label="Skills row 1">
           <div className="flex gap-4 md:gap-6 pr-4 md:pr-6">
             {multipliedTop.map((skill, index) => (
               <SkillCard key={`top-1-${index}`} skill={skill} />
@@ -138,8 +130,7 @@ export default function Skills({ dict }) {
           </div>
         </div>
 
-        {/* Baris 2: Jalan ke Kanan (Reverse) */}
-        <div className="skill-marquee skill-marquee-reverse flex w-max animate-scroll-reverse pause-on-hover py-4">
+        <div className="skill-marquee skill-marquee-reverse flex w-max animate-scroll-reverse pause-on-hover py-4 focus:outline-none" tabIndex={0} role="region" aria-label="Skills row 2">
           <div className="flex gap-4 md:gap-6 pr-4 md:pr-6">
             {multipliedBottom.map((skill, index) => (
               <SkillCard key={`bottom-1-${index}`} skill={skill} />
@@ -156,7 +147,7 @@ export default function Skills({ dict }) {
       <style>{`
         @keyframes scroll {
           0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); } 
+          100% { transform: translate3d(-50%, 0, 0); }
         }
         @keyframes scroll-reverse {
           0% { transform: translate3d(-50%, 0, 0); }
@@ -176,22 +167,29 @@ export default function Skills({ dict }) {
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
         }
-        .pause-on-hover:hover {
+        .pause-on-hover:hover,
+        .pause-on-hover:active,
+        .pause-on-hover:focus-within {
           animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll,
+          .animate-scroll-reverse {
+            animation: none !important;
+          }
         }
       `}</style>
     </section>
   );
 }
 
-// Komponen Card dengan Hover Interaktif
 function SkillCard({ skill }) {
   return (
-    <div className="group flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 bg-white/60 backdrop-blur-md border border-brand-text/10 rounded-3xl shadow-sm hover:shadow-xl hover:scale-110 hover:-translate-y-2 hover:border-brand-purple/30 hover:bg-white transition-all duration-300 cursor-pointer">
+    <div className="group flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 bg-surface border border-surface-border rounded-3xl shadow-xs hover:border-brand-purple/30 transition-all duration-300">
       <img
         src={skill.img}
         alt={skill.name}
-        className="w-6 h-6 md:w-8 md:h-8 object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300"
+        className="w-6 h-6 md:w-8 md:h-8 object-contain"
       />
 
       <span className="font-bold text-brand-text group-hover:text-brand-purple text-base md:text-lg whitespace-nowrap transition-colors duration-300">

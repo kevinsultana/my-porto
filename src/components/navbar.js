@@ -74,18 +74,15 @@ export default function Navbar({ locale = "en", dict = {} }) {
   };
 
   const handleNavLinkClick = (id) => {
-    // Update active section state
     setActiveSection(id);
-    // Indicate that scrolling was triggered by a click to avoid IntersectionObserver interference
+    // Ignore IntersectionObserver updates while smooth-scrolling from click
     isClickScrolling.current = true;
 
-    // Smoothly scroll to the target section
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
 
-    // Reset the click-scrolling flag after a short delay
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;

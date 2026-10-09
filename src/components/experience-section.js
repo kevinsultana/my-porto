@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Code2, Building2 } from "lucide-react";
 
-// Data default pengalaman kerja yang diinjeksi ke dalam komponen
 const defaultExperiences = [
   {
     company: "Reachable Goods",
@@ -43,7 +42,6 @@ const defaultExperiences = [
 ];
 
 export default function Experience({ dict }) {
-  // Fallback variabel jika file dict bahasa belum di-load
   const title = dict?.title || "Pengalaman";
   const accent = dict?.accent || "Kerja";
   const technologiesLabel =
@@ -53,14 +51,12 @@ export default function Experience({ dict }) {
   return (
     <section id="experience" className="scroll-mt-14 py-8 md:py-12 relative">
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Badge Judul */}
         <div className="text-center mb-16">
           <h3 className="text-4xl md:text-5xl font-black tracking-tight text-brand-text">
             {title} <span className="text-brand-purple">{accent}</span>.
           </h3>
         </div>
 
-        {/* List Experience Cards */}
         <div className="flex flex-col gap-10">
           {experienceList.map((item, index) => (
             <motion.div
@@ -73,7 +69,6 @@ export default function Experience({ dict }) {
               <div className="bg-surface border border-surface-border rounded-4xl p-6 md:p-10 shadow-sm hover:shadow-xl hover:border-brand-purple/20 transition-all duration-300 group overflow-hidden relative transform-gpu">
                 <div className="absolute inset-0 bg-linear-to-br from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                {/* --- HEADER KARTU --- */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
                   <div className="flex items-center gap-5">
                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-text/5 flex items-center justify-center shrink-0 border border-brand-text/10 group-hover:scale-105 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/20 transition-all duration-300 transform-gpu">
@@ -101,7 +96,6 @@ export default function Experience({ dict }) {
                   </div>
                 </div>
 
-                {/* --- BODY KARTU --- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 mb-8 relative z-10">
                   {item.description.map((desc, i) => (
                     <div key={i} className="flex items-start gap-3">
@@ -113,7 +107,6 @@ export default function Experience({ dict }) {
                   ))}
                 </div>
 
-                {/* --- FOOTER KARTU --- */}
                 <div className="border-t border-brand-text/5 pt-6 relative z-10">
                   <div className="flex items-center gap-2 mb-4">
                     <Code2 className="w-5 h-5 text-brand-text/40" />

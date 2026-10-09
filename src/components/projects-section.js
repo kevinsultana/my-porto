@@ -19,7 +19,6 @@ import {
   CreditCard,
 } from "lucide-react";
 
-// Fungsi pemetaan Tag ke URL Logo Devicon disesuaikan dengan Tech Stack Anda
 const getTechIcon = (tag) => {
   const icons = {
     "Next.js":
@@ -52,7 +51,6 @@ const getTechIcon = (tag) => {
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
     Linux:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
-    // Tambahan bawaan agar tidak error jika ada tech lama
     Laravel:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
     MySQL:
@@ -60,7 +58,7 @@ const getTechIcon = (tag) => {
     Figma:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
   };
-  return icons[tag]; // Mengembalikan URL logo jika ada, jika tidak ada akan mengembalikan undefined (hanya menampilkan teks)
+  return icons[tag];
 };
 
 const getTagIcon = (tag) => {
@@ -185,7 +183,6 @@ function ProjectCard({ project, index }) {
                   key={i}
                   className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-text/5 text-brand-ink/80 text-xs font-bold rounded-full border border-surface-border/70 transition-colors group-hover:bg-surface group-hover:shadow-sm group-hover:border-brand-text/10"
                 >
-                  {/* Cek apakah logonya ada di fungsi mapping kita */}
                   <TagIcon tag={tag} />
                   {tag}
                 </span>
@@ -201,7 +198,6 @@ function ProjectCard({ project, index }) {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

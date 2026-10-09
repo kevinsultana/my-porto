@@ -8,7 +8,6 @@ import Experience from "@/components/experience-section";
 import ProjectsSection from "@/components/projects-section";
 import ContactSection from "@/components/contact-section";
 import { getDictionary } from "@/lib/dictionary";
-import MouseGlow from "@/components/mouse-glow";
 
 const locales = ["id", "en"];
 
@@ -34,12 +33,10 @@ export default async function Home({ params }) {
 
   return (
     <main className="portfolio-shell relative isolate overflow-hidden bg-background text-foreground selection:bg-brand-pink selection:text-white">
-      <MouseGlow />
       <Navbar locale={locale} dict={dict.navbar} />
-      <div className="pointer-events-none absolute inset-0 -z-20 subtle-grid" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(245,158,11,0.08),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(15,23,42,0.06),transparent_28%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(245,158,11,0.05),transparent_26%)]" />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-28 pt-24 sm:px-6 sm:pb-24 lg:px-8 lg:pb-24 lg:pt-28">
         <HeroSection dict={dict.hero} socialLinks={socialLinks} />
         <ProjectsSection dict={dict.projects} />
         <SkillsSection dict={dict.skills} />

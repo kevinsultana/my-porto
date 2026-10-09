@@ -20,6 +20,8 @@ const config = {
           pink: "rgb(var(--brand-pink) / <alpha-value>)",
           mint: "rgb(var(--brand-mint) / <alpha-value>)",
           amber: "rgb(var(--brand-amber) / <alpha-value>)",
+          teal: "rgb(var(--brand-teal) / <alpha-value>)",
+          indigo: "rgb(var(--brand-indigo) / <alpha-value>)",
         },
       },
       fontFamily: {

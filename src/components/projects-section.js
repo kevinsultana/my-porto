@@ -261,14 +261,14 @@ function ProjectCard({ project, index, dict }) {
               {technologies.slice(0, 3).map((tech, i) => (
                 <span
                   key={i}
-                  className="inline-flex items-center gap-1 rounded-full border border-surface-border/70 bg-brand-text/5 px-2 py-0.5 text-[10px] font-bold text-brand-text/70"
+                  className="inline-flex items-center gap-1 rounded-full border border-surface-border bg-surface-strong px-2 py-0.5 text-[10px] font-bold text-brand-text/80 shadow-xs"
                 >
                   <TagIcon tag={tech} />
                   {tech}
                 </span>
               ))}
               {technologies.length > 3 && (
-                <span className="rounded-full border border-surface-border/70 bg-brand-text/5 px-1.5 py-0.5 text-[10px] font-bold text-muted">
+                <span className="rounded-full border border-surface-border bg-surface-strong px-1.5 py-0.5 text-[10px] font-bold text-brand-text/70 shadow-xs">
                   +{technologies.length - 3}
                 </span>
               )}

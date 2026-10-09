@@ -58,6 +58,8 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="ambient-mesh-glow" aria-hidden="true" />
+          <div className="bg-dot-texture" aria-hidden="true" />
           {children}
         </ThemeProvider>
       </body>

@@ -145,19 +145,19 @@ export default function HeroSection({ dict }) {
                 className="w-full h-full object-cover object-bottom"
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/30 dark:from-black/70 via-transparent to-transparent" />
 
-              <div className="absolute top-8 left-8 text-white">
-                <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+              <div className="absolute top-5 left-5 sm:top-6 sm:left-6 rounded-2xl bg-white/85 dark:bg-black/30 border border-white/80 dark:border-white/50 px-3.5 py-2.5 sm:px-4 sm:py-3 backdrop-blur-md shadow-md shadow-slate-900/5 dark:shadow-black/40">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
                   Kevin Sultana{" "}
                   <span className="text-brand-purple">Herman</span>
                 </h3>
-                <p className="text-sm md:text-base font-bold text-white/80">
+                <p className="text-xs sm:text-sm md:text-base font-bold text-slate-600 dark:text-white/85">
                   Full-stack Developer
                 </p>
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 text-white p-3 sm:p-4 bg-black/40 rounded-3xl border border-white/10 backdrop-blur-sm">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 p-3 sm:p-4 bg-white/90 dark:bg-black/55 text-slate-900 dark:text-white rounded-3xl border border-white/90 dark:border-white/15 backdrop-blur-md shadow-lg shadow-slate-900/10 dark:shadow-black/50">
                 <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                   <Image
                     src="/images/Hero2.png"
@@ -165,20 +165,20 @@ export default function HeroSection({ dict }) {
                     width={40}
                     height={40}
                     sizes="40px"
-                    className="h-9 w-9 rounded-full border border-white/20 object-cover sm:h-10 sm:w-10"
+                    className="h-9 w-9 rounded-full border border-slate-200/90 dark:border-white/20 object-cover sm:h-10 sm:w-10"
                   />
                   <div className="min-w-0">
-                    <p className="truncate text-xs font-black text-white/90 sm:text-sm">
+                    <p className="truncate text-xs font-black text-slate-900 dark:text-white sm:text-sm">
                       @kevinsultana
                     </p>
-                    <p className="whitespace-nowrap text-[11px] font-medium text-white/70">
+                    <p className="whitespace-nowrap text-[11px] font-semibold text-slate-600 dark:text-white/70">
                       Cibubur, Indonesia
                     </p>
                   </div>
                 </div>
                 <a
                   href="#contact"
-                  className="inline-flex min-h-11 items-center justify-center whitespace-nowrap px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-xs font-black rounded-full transition-colors"
+                  className="inline-flex min-h-11 items-center justify-center whitespace-nowrap px-4 py-2 border border-slate-200/90 dark:border-white/20 bg-slate-100/90 dark:bg-white/20 hover:bg-slate-200/90 dark:hover:bg-white/30 text-slate-900 dark:text-white text-xs font-black rounded-full transition-colors"
                 >
                   {dict?.ctaContact || "Contact Me"}
                 </a>

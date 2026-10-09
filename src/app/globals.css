@@ -12,6 +12,8 @@
   --brand-pink: 236 72 153;
   --brand-amber: 245 158 11;
   --brand-mint: 16 185 129;
+  --brand-teal: 20 184 166;
+  --brand-indigo: 99 102 241;
   --brand-paper: 255 255 255;
   --brand-ink: 15 23 42;
   --surface: 255 255 255;
@@ -35,6 +37,8 @@
   --brand-pink: 244 114 182;
   --brand-amber: 251 191 36;
   --brand-mint: 52 211 153;
+  --brand-teal: 45 212 191;
+  --brand-indigo: 129 140 248;
   --brand-paper: 15 17 23;
   --brand-ink: 244 244 245;
   --surface: 18 18 22;
@@ -61,6 +65,8 @@
   --color-brand-purple: rgb(var(--brand-purple));
   --color-brand-pink: rgb(var(--brand-pink));
   --color-brand-mint: rgb(var(--brand-mint));
+  --color-brand-teal: rgb(var(--brand-teal));
+  --color-brand-indigo: rgb(var(--brand-indigo));
   --color-brand-amber: rgb(var(--brand-amber));
   --color-surface: rgb(var(--surface));
   --color-surface-strong: rgb(var(--surface-strong));
@@ -122,38 +128,175 @@ h4 {
   letter-spacing: -0.01em;
 }
 
-/* Micro-border surfaces and engineered elevation */
+/* Micro-border surfaces and engineered liquid glassmorphism */
 .glass-card {
-  border: 1px solid rgb(var(--surface-border) / 1);
-  background: rgb(var(--surface) / 0.98);
+  position: relative;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   box-shadow:
-    0 1px 3px 0 rgb(var(--shadow-rgb) / 0.05),
-    0 1px 2px -1px rgb(var(--shadow-rgb) / 0.05);
+    0 1px 3px 0 rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .dark .glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(20, 24, 33, 0.65);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
-    0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 4px 20px -2px rgba(0, 0, 0, 0.45);
 }
 
 .glass-card:hover {
-  border-color: rgb(var(--brand-blue) / 0.4);
+  border-color: rgba(99, 102, 241, 0.4);
   box-shadow:
-    0 8px 24px -4px rgb(var(--shadow-rgb) / 0.08),
-    0 4px 12px -2px rgb(var(--shadow-rgb) / 0.04);
+    0 12px 28px -6px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
   transform: translateY(-2px);
 }
 
 .dark .glass-card:hover {
-  border-color: rgb(var(--brand-blue) / 0.4);
+  border-color: rgba(129, 140, 248, 0.35);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 12px 32px -4px rgba(0, 0, 0, 0.6),
+    0 0 24px -6px rgba(99, 102, 241, 0.18);
+}
+
+.glass-panel {
+  position: relative;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 10px 25px -5px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+.dark .glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 22, 31, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-    0 8px 24px -4px rgba(0, 0, 0, 0.6);
+    0 12px 30px -4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 640px) {
+  .glass-card,
+  .dark .glass-card,
+  .glass-panel,
+  .dark .glass-panel {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateZ(0);
+  }
+}
+
+.glass-pill {
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-pill {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(20, 25, 38, 0.65);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Atmospheric Ambient Canvas Mesh Glow */
+.ambient-mesh-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 15% 10%,
+      rgba(99, 102, 241, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 88% 18%,
+      rgba(139, 92, 246, 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 50% 65%,
+      rgba(20, 184, 166, 0.07),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 82% 88%,
+      rgba(99, 102, 241, 0.06),
+      transparent 70%
+    );
+}
+
+.dark .ambient-mesh-glow {
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 15% 10%,
+      rgba(99, 102, 241, 0.14),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 88% 18%,
+      rgba(168, 85, 247, 0.11),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 50% 62%,
+      rgba(45, 212, 191, 0.09),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 82% 88%,
+      rgba(99, 102, 241, 0.1),
+      transparent 70%
+    );
+}
+
+/* Subtle Geometric Texture Overlay */
+.bg-dot-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -9;
+  background-image: radial-gradient(
+    rgba(148, 163, 184, 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  mask-image: radial-gradient(
+    ellipse 80% 80% at 50% 35%,
+    black 40%,
+    transparent 95%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 80% at 50% 35%,
+    black 40%,
+    transparent 95%
+  );
+}
+
+.dark .bg-dot-texture {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
 }
 
 .glass-button {

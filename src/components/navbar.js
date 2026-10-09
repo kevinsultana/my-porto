@@ -95,35 +95,40 @@ export default function Navbar({ locale = "en", dict = {} }) {
       name: dict.home || (locale === "id" ? "Beranda" : "Home"),
       path: "#home",
       icon: Home,
-      color: "bg-brand-blue",
+      color: "bg-blue-50 border border-blue-200/90 dark:border-transparent dark:bg-brand-blue",
+      activeText: "text-blue-700 dark:text-white font-extrabold",
     },
     {
       id: "projects",
       name: dict.projects || (locale === "id" ? "Proyek" : "Projects"),
       path: "#projects",
       icon: Folder,
-      color: "bg-brand-amber",
+      color: "bg-amber-50 border border-amber-200/90 dark:border-transparent dark:bg-brand-amber",
+      activeText: "text-amber-800 dark:text-slate-950 font-black",
     },
     {
       id: "experience",
       name: dict.experience || (locale === "id" ? "Pengalaman" : "Experience"),
       path: "#experience",
       icon: Briefcase,
-      color: "bg-brand-purple",
+      color: "bg-purple-50 border border-purple-200/90 dark:border-transparent dark:bg-brand-purple",
+      activeText: "text-purple-700 dark:text-white font-extrabold",
     },
     {
       id: "about",
       name: dict.about || (locale === "id" ? "Tentang" : "About"),
       path: "#about",
       icon: User,
-      color: "bg-brand-pink",
+      color: "bg-pink-50 border border-pink-200/90 dark:border-transparent dark:bg-brand-pink",
+      activeText: "text-pink-700 dark:text-white font-extrabold",
     },
     {
       id: "contact",
       name: dict.contact || (locale === "id" ? "Kontak" : "Contact"),
       path: "#contact",
       icon: Mail,
-      color: "bg-brand-mint",
+      color: "bg-emerald-50 border border-emerald-200/90 dark:border-transparent dark:bg-brand-mint",
+      activeText: "text-emerald-700 dark:text-slate-950 font-black",
     },
   ];
 
@@ -140,11 +145,11 @@ export default function Navbar({ locale = "en", dict = {} }) {
 
   return (
     <header className="fixed bottom-3 md:top-4 md:bottom-auto inset-x-0 z-50 flex justify-center px-2 sm:px-4 transition-all duration-300">
-      <nav className="md:hidden relative flex w-full max-w-[calc(100vw-0.75rem)] items-center justify-between gap-1.5 overflow-visible rounded-[1.75rem] border border-surface-border bg-surface/90 px-2 py-2 shadow-lg shadow-black/20 backdrop-blur-md">
+      <nav className="md:hidden relative flex w-full max-w-[calc(100vw-0.75rem)] items-center justify-between gap-1.5 overflow-visible rounded-[1.75rem] border border-surface-border bg-surface/90 px-2 py-2 shadow-lg shadow-slate-900/5 dark:shadow-black/25 backdrop-blur-md">
         <a
           href="#home"
           onClick={() => handleNavLinkClick("home")}
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all ${activeSection === "home" ? "border-brand-blue/30 bg-brand-blue text-white shadow-md shadow-brand-blue/20" : "border-brand-text/10 bg-brand-text/5 text-brand-text"}`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all ${activeSection === "home" ? "border-blue-200/90 bg-blue-50 text-blue-700 dark:border-brand-blue/30 dark:bg-brand-blue dark:text-white shadow-xs" : "border-brand-text/10 bg-brand-text/5 text-brand-text"}`}
           aria-label={dict.home || (locale === "id" ? "Beranda" : "Home")}
           title={dict.home || (locale === "id" ? "Beranda" : "Home")}
         >
@@ -192,7 +197,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
                   />
                 )}
                 <Icon
-                  className={`h-6 w-6 transition-colors duration-300 ${isActive ? "text-white" : "text-brand-text"}`}
+                  className={`h-6 w-6 transition-colors duration-300 ${isActive ? item.activeText : "text-brand-text"}`}
                 />
               </motion.a>
             );
@@ -268,7 +273,7 @@ export default function Navbar({ locale = "en", dict = {} }) {
         </div>
       </nav>
 
-      <nav className="hidden max-w-[calc(100vw-0.75rem)] items-center gap-0.5 overflow-hidden rounded-full border border-surface-border bg-surface/85 px-1.5 py-1.5 shadow-lg shadow-black/20 backdrop-blur-md md:flex sm:gap-1 md:gap-2 sm:px-2 md:px-4">
+      <nav className="hidden max-w-[calc(100vw-0.75rem)] items-center gap-0.5 overflow-hidden rounded-full border border-surface-border bg-surface/85 px-1.5 py-1.5 shadow-lg shadow-slate-900/5 dark:shadow-black/25 backdrop-blur-md md:flex sm:gap-1 md:gap-2 sm:px-2 md:px-4">
         <a
           href="#home"
           onClick={() => handleNavLinkClick("home")}
@@ -317,11 +322,11 @@ export default function Navbar({ locale = "en", dict = {} }) {
                 />
               )}
               <Icon
-                className={`h-4 w-4 transition-colors duration-300 md:h-4 md:w-4 ${isActive ? "text-white" : "text-brand-text"}`}
+                className={`h-4 w-4 transition-colors duration-300 md:h-4 md:w-4 ${isActive ? item.activeText : "text-brand-text"}`}
               />
 
               <span
-                className={`hidden transition-colors duration-300 lg:block ${isActive ? "text-white" : "hover:text-brand-purple"}`}
+                className={`hidden transition-colors duration-300 lg:block ${isActive ? item.activeText : "hover:text-brand-purple"}`}
               >
                 {item.name}
               </span>
